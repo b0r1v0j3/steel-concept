@@ -409,10 +409,10 @@ button {
 
 .hero h1 {
   margin: 1rem 0 1rem;
-  max-width: 9ch;
+  max-width: 8.4ch;
   font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(3.1rem, 6vw, 5.6rem);
-  line-height: 0.9;
+  font-size: clamp(2.8rem, 5vw, 4.9rem);
+  line-height: 0.92;
   text-transform: uppercase;
   letter-spacing: -0.03em;
 }
