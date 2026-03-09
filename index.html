@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -52,7 +52,12 @@
     <header class="site-header" data-header>
       <div class="container header-inner">
         <a class="brand" href="#top" aria-label="Steel Concept početna">
-          <span class="brand-mark" aria-hidden="true"></span>
+          <img
+            class="brand-mark"
+            src="assets/brand-mark.svg"
+            alt=""
+            aria-hidden="true"
+          />
           <span class="brand-copy">
             <strong>Steel Concept</strong>
             <small>Sendvič paneli</small>
@@ -85,13 +90,13 @@
       <section class="hero" id="top">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
-            <span class="eyebrow">Steel Concept • Krovni i zidni paneli</span>
-            <h1>Metalna preciznost za objekte koji moraju da traju.</h1>
+            <span class="eyebrow">Steel Concept • Zidni i krovni paneli</span>
+            <h1>Pouzdani sendvič paneli za hale, krovove i fasade.</h1>
             <p class="hero-text">
-              Prodaja sendvič panela za hale, magacine, poslovne i
-              poljoprivredne objekte. Pomažemo da brzo dođete do sistema koji
-              izgleda profesionalno, montira se efikasno i daje pouzdanu
-              termoizolaciju.
+              Prodaja sendvič panela za industrijske, skladišne, poslovne i
+              poljoprivredne objekte. Pomažemo da brzo dođete do rešenja koje
+              izgleda uredno, montira se racionalno i daje ozbiljan završni
+              utisak na objektu.
             </p>
 
             <div class="hero-actions">
@@ -104,36 +109,48 @@
             </div>
 
             <ul class="hero-points" aria-label="Ključne prednosti">
-              <li>Krovni i zidni sendvič paneli</li>
-              <li>Brza i jasna komunikacija</li>
-              <li>Za hale, retail i logistiku</li>
-              <li>Podrška pri izboru sistema</li>
+              <li>Zidni i krovni paneli</li>
+              <li>Rešenja za hale i magacine</li>
+              <li>Pomoć pri izboru sistema</li>
+              <li>Brza komunikacija i ponuda</li>
             </ul>
           </div>
 
           <div class="hero-visual reveal">
             <div class="visual-shell">
-              <div class="hero-panel hero-panel-back"></div>
-              <div class="hero-panel hero-panel-mid"></div>
-              <div class="hero-panel hero-panel-front"></div>
-
-              <div class="floating-card floating-card-main">
-                <span class="floating-label">Panel sistemi</span>
-                <strong>Rešenja za krovove i fasade</strong>
-                <p>
-                  Za industrijske, skladišne i komercijalne objekte gde su
-                  bitni brzina, uredan izgled i funkcionalnost.
-                </p>
-              </div>
-
-              <div class="floating-card floating-card-small">
-                <span class="floating-label">Lokacija</span>
+              <div class="location-badge">
+                <span>Lokacija</span>
                 <strong>Kać, Srbija</strong>
               </div>
 
-              <div class="visual-badge">
-                <span>Steel finish</span>
-                <strong>Moderni industrijski izgled</strong>
+              <div class="warehouse-scene" aria-hidden="true">
+                <div class="warehouse-roof"></div>
+                <div class="warehouse-front"></div>
+                <div class="warehouse-side"></div>
+                <div class="scene-shadow"></div>
+              </div>
+
+              <div class="sample-card sample-card-front">
+                <span class="sample-type">Zidni panel</span>
+                <strong>Čist fasadni ritam</strong>
+                <p>
+                  Uredan izgled za hale, salone, servisne i poslovne objekte.
+                </p>
+              </div>
+
+              <div class="sample-card sample-card-side">
+                <span class="sample-type">Krovni panel</span>
+                <strong>Praktičan sistem za veće površine</strong>
+                <p>
+                  Rešenje za krovove objekata gde su brzina i pouzdan završetak
+                  bitni.
+                </p>
+              </div>
+
+              <div class="material-strip">
+                <span>Fasadni</span>
+                <span>Krovni</span>
+                <span>Hladnjače</span>
               </div>
             </div>
           </div>
@@ -154,7 +171,7 @@
         <div class="container about-grid">
           <div class="section-heading reveal">
             <span class="section-kicker">O nama</span>
-            <h2>Steel Concept je partner za čist, brz i ozbiljan panel sistem.</h2>
+            <h2>Rešenja za objekte gde su bitni brzina gradnje, termoizolacija i uredan izgled.</h2>
           </div>
 
           <div class="about-card reveal">
@@ -178,6 +195,10 @@
                 <span>Telefon</span>
                 <strong>060 070 5045</strong>
               </div>
+              <div>
+                <span>Email</span>
+                <strong>branislavmilutinovic1969@gmail.com</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -187,16 +208,17 @@
         <div class="container">
           <div class="section-heading reveal">
             <span class="section-kicker">Ponuda</span>
-            <h2>Panel rešenja koja pokrivaju glavne potrebe modernog objekta.</h2>
+            <h2>Panel sistemi koje kupci traže kada im treba funkcija, brzina i čist završni izgled.</h2>
             <p>
-              Fokus na jasnoj ponudi, brzoj komunikaciji i izboru sistema koji
-              odgovara konkretnoj nameni prostora.
+              Fokus je na praktičnoj ponudi i izboru sistema koji odgovara
+              nameni objekta, a ne na komplikovanoj priči.
             </p>
           </div>
 
           <div class="cards cards-three">
-            <article class="info-card reveal">
+            <article class="info-card info-card-wall reveal">
               <span class="card-tag">Fasada</span>
+              <div class="card-visual" aria-hidden="true"></div>
               <h3>Zidni sendvič paneli</h3>
               <p>
                 Čist i moderan izgled fasade uz sistem koji ubrzava zatvaranje
@@ -204,8 +226,9 @@
               </p>
             </article>
 
-            <article class="info-card reveal">
+            <article class="info-card info-card-roof reveal">
               <span class="card-tag">Krov</span>
+              <div class="card-visual" aria-hidden="true"></div>
               <h3>Krovni sendvič paneli</h3>
               <p>
                 Pouzdano rešenje za hale i pokrivanje većih površina, sa
@@ -213,8 +236,9 @@
               </p>
             </article>
 
-            <article class="info-card reveal">
+            <article class="info-card info-card-support reveal">
               <span class="card-tag">Podrška</span>
+              <div class="card-visual" aria-hidden="true"></div>
               <h3>Pomoć pri izboru sistema</h3>
               <p>
                 Od tipa objekta i debljine panela do završnog utiska, pomažemo
@@ -229,7 +253,7 @@
         <div class="container">
           <div class="section-heading reveal">
             <span class="section-kicker">Primena</span>
-            <h2>Idealno za objekte gde su brzina izgradnje i uredan izgled prioritet.</h2>
+            <h2>Najpraktičnije za objekte gde se traže brzina zatvaranja i profesionalan izgled.</h2>
           </div>
 
           <div class="cards cards-application">
@@ -378,8 +402,8 @@
         <div>
           <strong>Steel Concept DOO Kać</strong>
           <p>
-            Sendvič paneli za moderne industrijske, poslovne i poljoprivredne
-            objekte.
+            Prodaja sendvič panela za hale, skladišta, poslovne i
+            poljoprivredne objekte.
           </p>
         </div>
         <div class="footer-meta">
