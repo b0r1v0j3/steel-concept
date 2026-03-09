@@ -31,27 +31,18 @@ if (menuToggle && nav) {
 
 const revealElements = document.querySelectorAll(".reveal");
 
-if ("IntersectionObserver" in window && revealElements.length > 0) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+if (revealElements.length > 0) {
+  const showReveals = () => {
+    revealElements.forEach((element) => element.classList.add("is-visible"));
+  };
 
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      });
-    },
-    {
-      threshold: 0.18,
-      rootMargin: "0px 0px -6% 0px"
-    }
-  );
-
-  revealElements.forEach((element) => observer.observe(element));
-} else {
-  revealElements.forEach((element) => element.classList.add("is-visible"));
+  if ("requestAnimationFrame" in window) {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(showReveals);
+    });
+  } else {
+    showReveals();
+  }
 }
 
 const yearElement = document.querySelector("[data-year]");
