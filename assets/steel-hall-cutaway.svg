@@ -1,75 +1,75 @@
 <svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="600" y1="30" x2="600" y2="620" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#D0D6DB"/>
-      <stop offset="0.5" stop-color="#AAB3BB"/>
-      <stop offset="1" stop-color="#5D666E"/>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECE9E2" />
+      <stop offset="1" stop-color="#D8D5CE" />
     </linearGradient>
-    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#AAB4BE"/>
-      <stop offset="0.5" stop-color="#67727C"/>
-      <stop offset="1" stop-color="#2D353D"/>
+    <linearGradient id="ground" x1="600" y1="432" x2="600" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8C4BD" />
+      <stop offset="1" stop-color="#9F9A93" />
     </linearGradient>
-    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#EEF2F5"/>
-      <stop offset="0.5" stop-color="#C6CDD4"/>
-      <stop offset="1" stop-color="#7C8791"/>
+    <linearGradient id="steelFace" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#CBD4DA" />
+      <stop offset="0.42" stop-color="#96A1AA" />
+      <stop offset="1" stop-color="#5E6872" />
     </linearGradient>
-    <linearGradient id="dark" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#232A31"/>
-      <stop offset="1" stop-color="#0B0F13"/>
+    <linearGradient id="steelSide" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#7E8992" />
+      <stop offset="1" stop-color="#49545D" />
     </linearGradient>
-    <pattern id="panelLines" width="26" height="26" patternUnits="userSpaceOnUse">
-      <rect width="26" height="26" fill="url(#panel)"/>
-      <rect x="0" width="4" height="26" fill="#D9E0E5"/>
-      <rect x="13" width="2" height="26" fill="#89939C" fill-opacity="0.52"/>
+    <pattern id="panelRibs" width="28" height="28" patternUnits="userSpaceOnUse">
+      <rect width="28" height="28" fill="#E9EEF1" />
+      <rect width="4" height="28" fill="#FBFCFD" />
+      <rect x="14" width="2" height="28" fill="#A1ABB4" fill-opacity="0.52" />
+      <rect x="24" width="2" height="28" fill="#8D98A1" fill-opacity="0.34" />
+    </pattern>
+    <pattern id="roofRibs" width="42" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+      <rect width="42" height="26" fill="#DCE3E8" />
+      <rect width="5" height="26" fill="#F8FAFB" />
+      <rect x="21" width="2" height="26" fill="#9BA5AE" fill-opacity="0.42" />
     </pattern>
   </defs>
 
-  <rect width="1200" height="620" fill="url(#bg)"/>
-  <rect y="430" width="1200" height="190" fill="#5B6269"/>
-  <polygon points="138,548 1058,432 1058,472 138,588" fill="#727A82"/>
-  <polygon points="138,588 1058,472 1058,506 138,622" fill="#4F5860"/>
+  <rect width="1200" height="620" fill="url(#bg)" />
+  <rect y="432" width="1200" height="188" fill="url(#ground)" />
 
-  <polygon points="190,410 318,360 452,322 320,374" fill="url(#steel)"/>
-  <polygon points="320,374 452,322 592,360 458,410" fill="url(#steel)"/>
-  <polygon points="452,322 590,282 728,322 592,360" fill="url(#steel)"/>
-  <polygon points="592,360 728,322 864,362 730,404" fill="url(#steel)"/>
-  <polygon points="730,404 864,362 996,324 868,366" fill="url(#steel)"/>
+  <polygon points="148,544 1038,432 1038,468 148,580" fill="#B2B9BE" />
+  <polygon points="148,580 1038,468 1038,506 148,618" fill="#858C93" />
 
-  <g opacity="0.82">
-    <rect x="188" y="410" width="18" height="156" fill="url(#steel)"/>
-    <rect x="318" y="374" width="18" height="170" fill="url(#steel)"/>
-    <rect x="450" y="322" width="18" height="206" fill="url(#steel)"/>
-    <rect x="592" y="360" width="18" height="160" fill="url(#steel)"/>
-    <rect x="728" y="322" width="18" height="186" fill="url(#steel)"/>
-    <rect x="866" y="366" width="18" height="146" fill="url(#steel)"/>
-    <rect x="996" y="324" width="18" height="180" fill="url(#steel)"/>
+  <polygon points="188,410 320,374 452,322 320,374" fill="url(#steelFace)" />
+  <polygon points="320,374 452,322 592,360 458,410" fill="url(#steelFace)" />
+  <polygon points="452,322 590,282 728,322 592,360" fill="url(#steelFace)" />
+  <polygon points="592,360 728,322 864,362 730,404" fill="url(#steelFace)" />
+  <polygon points="730,404 864,362 996,324 868,366" fill="url(#steelFace)" />
+
+  <polygon points="188,410 206,410 206,566 188,566" fill="url(#steelFace)" />
+  <polygon points="206,410 220,406 220,562 206,566" fill="url(#steelSide)" />
+  <polygon points="320,374 338,374 338,544 320,544" fill="url(#steelFace)" />
+  <polygon points="338,374 352,370 352,540 338,544" fill="url(#steelSide)" />
+  <polygon points="452,322 470,322 470,526 452,526" fill="url(#steelFace)" />
+  <polygon points="470,322 484,318 484,522 470,526" fill="url(#steelSide)" />
+  <polygon points="592,360 610,360 610,518 592,518" fill="url(#steelFace)" />
+  <polygon points="610,360 624,356 624,514 610,518" fill="url(#steelSide)" />
+  <polygon points="728,322 746,322 746,508 728,508" fill="url(#steelFace)" />
+  <polygon points="746,322 760,318 760,504 746,508" fill="url(#steelSide)" />
+  <polygon points="866,366 884,366 884,512 866,512" fill="url(#steelFace)" />
+  <polygon points="884,366 898,362 898,508 884,512" fill="url(#steelSide)" />
+  <polygon points="996,324 1014,324 1014,504 996,504" fill="url(#steelFace)" />
+  <polygon points="1014,324 1028,320 1028,500 1014,504" fill="url(#steelSide)" />
+
+  <g opacity="0.28">
+    <rect x="208" y="448" width="764" height="7" fill="#69747C" />
+    <rect x="208" y="500" width="764" height="7" fill="#69747C" />
   </g>
 
-  <g opacity="0.34">
-    <rect x="206" y="448" width="764" height="8" fill="#4E5861"/>
-    <rect x="206" y="498" width="764" height="8" fill="#4E5861"/>
-  </g>
+  <polygon points="592,360 728,322 864,362 864,512 592,520" fill="url(#panelRibs)" />
+  <polygon points="728,322 996,324 996,504 864,512 864,362" fill="url(#panelRibs)" />
+  <polygon points="452,322 590,282 728,322 592,360" fill="url(#roofRibs)" />
 
-  <polygon points="592,360 728,322 864,362 864,510 592,520" fill="url(#panelLines)"/>
-  <polygon points="728,322 996,324 996,504 864,510 864,362" fill="url(#panelLines)"/>
-  <polygon points="592,360 728,322 996,324 864,362" fill="#EFF3F6" opacity="0.38"/>
+  <polygon points="188,410 320,374 320,544 188,566" fill="#646C74" opacity="0.72" />
+  <polygon points="206,420 302,394 302,536 206,552" fill="#565E66" opacity="0.58" />
 
-  <polygon points="188,410 320,374 320,544 188,566" fill="url(#dark)"/>
-  <polygon points="206,420 302,394 302,538 206,554" fill="#10161B"/>
-  <rect x="236" y="434" width="34" height="98" fill="#39424B"/>
-  <rect x="206" y="420" width="96" height="14" fill="#2A333B"/>
-
-  <polygon points="452,322 590,282 728,322 592,360" fill="url(#panelLines)"/>
-  <rect x="444" y="526" width="34" height="12" rx="3" fill="#A3ABB3"/>
-  <rect x="724" y="506" width="34" height="12" rx="3" fill="#A3ABB3"/>
-  <rect x="992" y="502" width="34" height="12" rx="3" fill="#A3ABB3"/>
-
-  <circle cx="454" cy="532" r="2.8" fill="#454D55"/>
-  <circle cx="468" cy="532" r="2.8" fill="#454D55"/>
-  <circle cx="734" cy="512" r="2.8" fill="#454D55"/>
-  <circle cx="748" cy="512" r="2.8" fill="#454D55"/>
-  <circle cx="1002" cy="508" r="2.8" fill="#454D55"/>
-  <circle cx="1016" cy="508" r="2.8" fill="#454D55"/>
+  <rect x="444" y="526" width="40" height="14" rx="3" fill="#BCC4CA" />
+  <rect x="724" y="506" width="40" height="14" rx="3" fill="#BCC4CA" />
+  <rect x="992" y="502" width="40" height="14" rx="3" fill="#BCC4CA" />
 </svg>

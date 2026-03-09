@@ -1,65 +1,77 @@
 <svg width="900" height="540" viewBox="0 0 900 540" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="450" y1="0" x2="450" y2="540" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#CAD2D8"/>
-      <stop offset="1" stop-color="#6A737C"/>
+      <stop stop-color="#ECE9E2" />
+      <stop offset="1" stop-color="#D8D5CE" />
     </linearGradient>
-    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#B0BAC4"/>
-      <stop offset="0.5" stop-color="#68737D"/>
-      <stop offset="1" stop-color="#293038"/>
+    <linearGradient id="steelFace" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#CBD3D9" />
+      <stop offset="0.45" stop-color="#96A0A9" />
+      <stop offset="1" stop-color="#5F6972" />
+    </linearGradient>
+    <linearGradient id="steelSide" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#7D8992" />
+      <stop offset="1" stop-color="#49545D" />
     </linearGradient>
     <linearGradient id="outerSheet" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#F0F4F7"/>
-      <stop offset="1" stop-color="#8F99A2"/>
+      <stop stop-color="#F7F9FA" />
+      <stop offset="1" stop-color="#D7DEE3" />
     </linearGradient>
     <linearGradient id="innerSheet" x1="0" y1="0" x2="0" y2="1">
-      <stop stop-color="#DCE2E7"/>
-      <stop offset="1" stop-color="#7B858F"/>
+      <stop stop-color="#E9EEF1" />
+      <stop offset="1" stop-color="#C7D0D6" />
     </linearGradient>
     <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#E6D8AA"/>
-      <stop offset="1" stop-color="#B29659"/>
+      <stop stop-color="#E7DBAE" />
+      <stop offset="1" stop-color="#C5A86E" />
     </linearGradient>
   </defs>
 
-  <rect width="900" height="540" fill="url(#bg)"/>
-  <rect y="400" width="900" height="140" fill="#555D65"/>
+  <rect width="900" height="540" fill="url(#bg)" />
+  <rect y="404" width="900" height="136" fill="#D0CCC5" />
+  <rect y="432" width="900" height="108" fill="#A29F99" />
 
-  <rect x="118" y="64" width="56" height="372" fill="url(#steel)"/>
-  <rect x="170" y="98" width="196" height="40" rx="10" fill="url(#steel)"/>
-  <rect x="170" y="252" width="196" height="40" rx="10" fill="url(#steel)"/>
+  <polygon points="118,74 144,74 144,428 118,428" fill="url(#steelFace)" />
+  <polygon points="144,74 166,68 166,422 144,428" fill="url(#steelSide)" />
+  <rect x="108" y="428" width="66" height="18" rx="3" fill="#BCC4CA" />
+  <circle cx="124" cy="437" r="3.5" fill="#525A61" />
+  <circle cx="158" cy="437" r="3.5" fill="#525A61" />
 
-  <rect x="354" y="92" width="34" height="308" rx="9" fill="url(#outerSheet)"/>
-  <rect x="388" y="92" width="116" height="308" rx="9" fill="url(#core)"/>
-  <rect x="504" y="92" width="26" height="308" rx="8" fill="url(#innerSheet)"/>
+  <polygon points="168,118 324,118 338,130 182,130" fill="url(#steelFace)" />
+  <polygon points="324,118 338,130 338,150 324,138" fill="url(#steelSide)" />
+  <polygon points="168,248 324,248 338,260 182,260" fill="url(#steelFace)" />
+  <polygon points="324,248 338,260 338,280 324,268" fill="url(#steelSide)" />
 
-  <rect x="354" y="92" width="8" height="308" rx="4" fill="#FCFEFF"/>
-  <rect x="378" y="92" width="3" height="308" rx="1.5" fill="#89949D" fill-opacity="0.55"/>
-  <rect x="454" y="92" width="3" height="308" rx="1.5" fill="#8B7449" fill-opacity="0.5"/>
-  <rect x="504" y="92" width="6" height="308" rx="3" fill="#A9B3BC"/>
+  <polygon points="344,108 384,108 384,402 344,402" fill="url(#outerSheet)" />
+  <polygon points="384,108 506,108 506,402 384,402" fill="url(#core)" />
+  <polygon points="506,108 536,108 536,402 506,402" fill="url(#innerSheet)" />
 
-  <rect x="530" y="138" width="182" height="24" rx="12" fill="#AEB7C0"/>
-  <rect x="530" y="228" width="182" height="24" rx="12" fill="#AEB7C0"/>
-  <rect x="530" y="318" width="182" height="24" rx="12" fill="#AEB7C0"/>
+  <rect x="344" y="108" width="8" height="294" fill="#FFFFFF" opacity="0.9" />
+  <rect x="366" y="108" width="4" height="294" fill="#A4AEB6" opacity="0.62" />
+  <rect x="392" y="108" width="4" height="294" fill="#D9C58F" opacity="0.55" />
+  <rect x="506" y="108" width="6" height="294" fill="#B7C1C8" />
 
-  <rect x="534" y="144" width="174" height="12" rx="6" fill="#49515A"/>
-  <rect x="534" y="234" width="174" height="12" rx="6" fill="#49515A"/>
-  <rect x="534" y="324" width="174" height="12" rx="6" fill="#49515A"/>
+  <polygon points="338,146 344,146 344,158 338,158" fill="#4D5963" />
+  <polygon points="338,276 344,276 344,288 338,288" fill="#4D5963" />
 
-  <path d="M346 154H188" stroke="#2A3138" stroke-width="8" stroke-linecap="round"/>
-  <path d="M346 308H188" stroke="#2A3138" stroke-width="8" stroke-linecap="round"/>
-  <path d="M540 150H700" stroke="#E6EBEF" stroke-width="7" stroke-linecap="round"/>
-  <path d="M540 240H700" stroke="#E6EBEF" stroke-width="7" stroke-linecap="round"/>
-  <path d="M540 330H700" stroke="#E6EBEF" stroke-width="7" stroke-linecap="round"/>
+  <path d="M188 154H344" stroke="#39444D" stroke-width="7" stroke-linecap="round" />
+  <path d="M188 284H344" stroke="#39444D" stroke-width="7" stroke-linecap="round" />
 
-  <circle cx="342" cy="154" r="7" fill="#D07D45"/>
-  <circle cx="342" cy="308" r="7" fill="#D07D45"/>
-  <circle cx="540" cy="150" r="7" fill="#D07D45"/>
-  <circle cx="540" cy="240" r="7" fill="#D07D45"/>
-  <circle cx="540" cy="330" r="7" fill="#D07D45"/>
+  <path d="M536 152H718" stroke="#9AA3AB" stroke-width="6" stroke-linecap="round" />
+  <path d="M536 218H718" stroke="#9AA3AB" stroke-width="6" stroke-linecap="round" />
+  <path d="M536 284H718" stroke="#9AA3AB" stroke-width="6" stroke-linecap="round" />
 
-  <rect x="112" y="436" width="68" height="16" rx="4" fill="#ABB3BA"/>
-  <circle cx="126" cy="444" r="3" fill="#495159"/>
-  <circle cx="166" cy="444" r="3" fill="#495159"/>
+  <path d="M718 152L548 152" stroke="#E8EDF0" stroke-width="3" stroke-linecap="round" />
+  <path d="M718 218L548 218" stroke="#E8EDF0" stroke-width="3" stroke-linecap="round" />
+  <path d="M718 284L548 284" stroke="#E8EDF0" stroke-width="3" stroke-linecap="round" />
+
+  <circle cx="344" cy="154" r="6.5" fill="#B86A37" />
+  <circle cx="344" cy="284" r="6.5" fill="#B86A37" />
+  <circle cx="548" cy="152" r="6.5" fill="#B86A37" />
+  <circle cx="548" cy="218" r="6.5" fill="#B86A37" />
+  <circle cx="548" cy="284" r="6.5" fill="#B86A37" />
+
+  <polygon points="320,402 548,402 548,420 320,420" fill="#C9B37B" opacity="0.45" />
+  <polygon points="320,420 548,420 548,434 320,434" fill="#A49A88" />
+  <polygon points="102,446 190,446 190,460 102,460" fill="#C8C4BD" />
 </svg>

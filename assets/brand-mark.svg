@@ -1,19 +1,30 @@
 <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="256" height="256" rx="56" fill="#20272D"/>
-  <path d="M52 98L128 60L204 98" stroke="#F5F7F8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-  <rect x="58" y="102" width="140" height="96" rx="18" fill="url(#panel)"/>
-  <path d="M90 116V184" stroke="#65717C" stroke-width="8" stroke-linecap="round"/>
-  <path d="M128 116V184" stroke="#65717C" stroke-width="8" stroke-linecap="round"/>
-  <path d="M166 116V184" stroke="#65717C" stroke-width="8" stroke-linecap="round"/>
-  <path d="M70 150H186" stroke="#F5F7F8" stroke-opacity="0.2" stroke-width="4" stroke-linecap="round"/>
-  <rect x="58" y="102" width="140" height="96" rx="18" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="3"/>
-  <circle cx="78" cy="122" r="5" fill="#C97839"/>
-  <circle cx="178" cy="178" r="5" fill="#C97839"/>
   <defs>
-    <linearGradient id="panel" x1="58" y1="102" x2="198" y2="198" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F0F3F6"/>
-      <stop offset="0.46" stop-color="#C8CFD6"/>
-      <stop offset="1" stop-color="#7A8690"/>
+    <linearGradient id="panelFace" x1="64" y1="92" x2="192" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F6F7" />
+      <stop offset="0.5" stop-color="#D4DADE" />
+      <stop offset="1" stop-color="#98A2AA" />
     </linearGradient>
   </defs>
+
+  <path
+    d="M40 104L128 58L216 104"
+    stroke="#2D3942"
+    stroke-width="18"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M56 102H200V194H56V102Z"
+    fill="url(#panelFace)"
+    stroke="#39444C"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+  <path d="M90 118V194" stroke="#58646E" stroke-width="10" stroke-linecap="round" />
+  <path d="M128 118V194" stroke="#58646E" stroke-width="10" stroke-linecap="round" />
+  <path d="M166 118V194" stroke="#58646E" stroke-width="10" stroke-linecap="round" />
+  <path d="M68 150H188" stroke="#F8FAFB" stroke-width="6" stroke-linecap="round" stroke-opacity="0.8" />
+  <circle cx="74" cy="116" r="5" fill="#B86A37" />
+  <circle cx="182" cy="182" r="5" fill="#B86A37" />
 </svg>
