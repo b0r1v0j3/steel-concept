@@ -1,0 +1,49 @@
+<svg width="900" height="540" viewBox="0 0 900 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="450" y1="0" x2="450" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CED5DB"/>
+      <stop offset="1" stop-color="#68717A"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#B2BDC6"/>
+      <stop offset="0.5" stop-color="#66717B"/>
+      <stop offset="1" stop-color="#252C33"/>
+    </linearGradient>
+    <linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#EEF2F5"/>
+      <stop offset="1" stop-color="#8A949D"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#E6D9AE"/>
+      <stop offset="1" stop-color="#B79859"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="540" fill="url(#bg)"/>
+  <rect y="408" width="900" height="132" fill="#575F66"/>
+
+  <polygon points="146,382 392,286 418,304 172,402" fill="url(#steel)"/>
+  <polygon points="392,286 626,196 652,214 418,304" fill="url(#steel)"/>
+  <polygon points="626,196 748,238 522,330 418,304" fill="url(#sheet)"/>
+  <polygon points="522,330 748,238 748,264 522,356" fill="#8A959F"/>
+  <polygon points="404,292 626,206 650,220 430,306" fill="url(#core)" opacity="0.74"/>
+
+  <rect x="210" y="350" width="206" height="24" rx="12" transform="rotate(-22 210 350)" fill="#AAB4BD"/>
+  <rect x="350" y="294" width="206" height="24" rx="12" transform="rotate(-22 350 294)" fill="#AAB4BD"/>
+  <rect x="490" y="238" width="206" height="24" rx="12" transform="rotate(-22 490 238)" fill="#AAB4BD"/>
+  <rect x="214" y="356" width="198" height="10" rx="5" transform="rotate(-22 214 356)" fill="#49515A"/>
+  <rect x="354" y="300" width="198" height="10" rx="5" transform="rotate(-22 354 300)" fill="#49515A"/>
+  <rect x="494" y="244" width="198" height="10" rx="5" transform="rotate(-22 494 244)" fill="#49515A"/>
+
+  <rect x="154" y="386" width="54" height="16" rx="4" fill="#ABB4BC"/>
+  <circle cx="168" cy="394" r="3" fill="#495159"/>
+  <circle cx="196" cy="394" r="3" fill="#495159"/>
+
+  <path d="M246 354L270 364" stroke="#D07D45" stroke-width="8" stroke-linecap="round"/>
+  <path d="M386 298L410 308" stroke="#D07D45" stroke-width="8" stroke-linecap="round"/>
+  <path d="M526 242L550 252" stroke="#D07D45" stroke-width="8" stroke-linecap="round"/>
+
+  <polygon points="640,194 700,214 676,224 616,204" fill="#F0F4F7"/>
+  <polygon points="676,224 700,214 724,222 700,232" fill="#8C97A0"/>
+  <polygon points="616,204 676,224 700,232 640,212" fill="#C6CED5"/>
+</svg>
