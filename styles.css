@@ -169,10 +169,8 @@ h3 {
   font-size: 1.3rem;
 }
 
-.contact-copy p,
 .empty-state p,
-.product-card p,
-.contact-card span {
+.product-card p {
   margin: 0;
   color: var(--muted);
   line-height: 1.75;
@@ -213,8 +211,7 @@ h3 {
 }
 
 .filters-panel,
-.results-panel,
-.contact-card {
+.results-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   background: var(--surface);
@@ -236,8 +233,7 @@ h3 {
 }
 
 .filters-head h2,
-.results-head h2,
-.contact-copy h2 {
+.results-head h2 {
   max-width: none;
 }
 
@@ -423,34 +419,6 @@ h3 {
 .empty-state {
   padding: 4rem 1rem 2rem;
   text-align: center;
-}
-
-.contact {
-  padding-bottom: 4rem;
-}
-
-.contact-shell {
-  display: grid;
-  gap: 1.2rem;
-}
-
-.contact-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.contact-card {
-  display: grid;
-  gap: 0.55rem;
-  padding: 1.25rem;
-}
-
-.contact-card a,
-.contact-card strong {
-  color: var(--ink);
-  font-size: 1rem;
-  font-weight: 800;
 }
 
 .product-main {
@@ -800,8 +768,7 @@ h3 {
     width: min(var(--container), calc(100% - 1.25rem));
   }
 
-  .results-head,
-  .contact-cards {
+  .results-head {
     grid-template-columns: 1fr;
   }
 
@@ -812,10 +779,6 @@ h3 {
 
   .results-meta {
     justify-content: space-between;
-  }
-
-  .contact-cards {
-    display: grid;
   }
 
   .detail-specs {
