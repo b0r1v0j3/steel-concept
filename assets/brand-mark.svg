@@ -1,0 +1,30 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="panelFace" x1="64" y1="92" x2="192" y2="190" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F6F7" />
+      <stop offset="0.5" stop-color="#D4DADE" />
+      <stop offset="1" stop-color="#98A2AA" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M40 104L128 58L216 104"
+    stroke="#2D3942"
+    stroke-width="18"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M56 102H200V194H56V102Z"
+    fill="url(#panelFace)"
+    stroke="#39444C"
+    stroke-width="10"
+    stroke-linejoin="round"
+  />
+  <path d="M90 118V194" stroke="#58646E" stroke-width="10" stroke-linecap="round" />
+  <path d="M128 118V194" stroke="#58646E" stroke-width="10" stroke-linecap="round" />
+  <path d="M166 118V194" stroke="#58646E" stroke-width="10" stroke-linecap="round" />
+  <path d="M68 150H188" stroke="#F8FAFB" stroke-width="6" stroke-linecap="round" stroke-opacity="0.8" />
+  <circle cx="74" cy="116" r="5" fill="#B86A37" />
+  <circle cx="182" cy="182" r="5" fill="#B86A37" />
+</svg>
