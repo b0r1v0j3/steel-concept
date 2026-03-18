@@ -906,6 +906,15 @@ h3 {
   .product-main {
     padding-top: 1rem;
   }
+
+  .product-visual {
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
