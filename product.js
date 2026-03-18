@@ -1,6 +1,7 @@
 const products = window.STEEL_CONCEPT_PRODUCTS ?? [];
 const productMap = window.STEEL_CONCEPT_PRODUCT_MAP ?? {};
 const productDescriptions = window.STEEL_CONCEPT_PRODUCT_DESCRIPTIONS ?? {};
+const productHeroSpecs = window.STEEL_CONCEPT_PRODUCT_HERO_SPECS ?? {};
 const productDetails = window.STEEL_CONCEPT_PRODUCT_DETAILS ?? {};
 const params = new URLSearchParams(window.location.search);
 const slug = params.get("slug") ?? "";
@@ -105,6 +106,18 @@ const renderSpecs = (item) => {
     .join("");
 };
 
+const renderTechnicalRows = (rows = []) =>
+  rows
+    .map(
+      ([label, value]) => `
+        <tr>
+          <th scope="row">${escapeHtml(cleanCopy(label).replace(/:\s*\d+$/, "").replace(/:\s*$/, ""))}</th>
+          <td>${escapeHtml(cleanCopy(value))}</td>
+        </tr>
+      `
+    )
+    .join("");
+
 if (!product) {
   if (page) {
     page.hidden = true;
@@ -118,6 +131,8 @@ if (!product) {
   const summary = document.querySelector("[data-product-summary]");
   const image = document.querySelector("[data-product-image]");
   const specs = document.querySelector("[data-product-specs]");
+  const heroSpecsWrap = document.querySelector("[data-product-hero-specs-wrap]");
+  const heroSpecsTable = document.querySelector("[data-product-hero-specs]");
   const descriptionSection = document.querySelector("[data-product-description-section]");
   const descriptionCopy = document.querySelector("[data-product-description-copy]");
   const descriptionMedia = document.querySelector("[data-product-description-media]");
@@ -128,6 +143,7 @@ if (!product) {
   const mainFeatures = document.querySelector("[data-product-main-features]");
   const accessories = document.querySelector("[data-product-accessories]");
   const packaging = document.querySelector("[data-product-packaging]");
+  const technicalTable = document.querySelector("[data-product-technical-table]");
 
   document.title = `${getDisplayTitle(product)} | Steel Concept`;
 
@@ -141,6 +157,12 @@ if (!product) {
 
   if (summary) {
     summary.textContent = product.summary;
+  }
+
+  if (heroSpecsTable && heroSpecsWrap) {
+    const rows = productHeroSpecs[slug] ?? [];
+    heroSpecsTable.innerHTML = renderTechnicalRows(rows);
+    heroSpecsWrap.hidden = rows.length === 0;
   }
 
   if (image) {
@@ -193,6 +215,10 @@ if (!product) {
 
   if (packaging) {
     packaging.innerHTML = renderParagraphs(details.packaging, product);
+  }
+
+  if (technicalTable) {
+    technicalTable.innerHTML = renderTechnicalRows(details.technicalRows);
   }
 
   if (page) {

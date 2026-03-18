@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script defer src="products-data.js"></script>
     <script defer src="product-description.js"></script>
+    <script defer src="product-hero-specs.js"></script>
     <script defer src="product-details.js"></script>
     <script defer src="product.js"></script>
   </head>
@@ -62,6 +63,9 @@
           <div class="product-summary">
             <h1 class="visually-hidden" data-product-name></h1>
             <p class="product-lead" data-product-summary></p>
+            <div class="technical-table-wrap product-quick-specs" data-product-hero-specs-wrap hidden>
+              <table class="technical-table technical-table-compact" data-product-hero-specs></table>
+            </div>
 
             <div class="detail-specs" data-product-specs></div>
           </div>
@@ -102,6 +106,13 @@
               <div class="detail-copy" data-product-packaging></div>
             </article>
           </div>
+
+          <article class="detail-card detail-card-wide">
+            <h3>Ostale tehničke karakteristike</h3>
+            <div class="technical-table-wrap">
+              <table class="technical-table" data-product-technical-table></table>
+            </div>
+          </article>
         </section>
       </div>
     </main>
