@@ -205,18 +205,6 @@
         "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isosano5-9010-7016-horizontal-up-front-view-ro-v1CRP0M.jpg",
       sourceUrl: "https://terasteel.rs/proizvoda/isosano-5-krovni-paneli"
     },
-    {
-      name: "ISOSANO5 RF LS",
-      fullName: "Termoizolacioni krovni paneli ISOSANO5 RF LS",
-      type: "krovni",
-      core: "PIR",
-      fixation: "Vidljivi spoj",
-      application: ["Stroge higijenske primene"],
-      summary: "PIR krovni sistem za higijenski zahtevne krovne primene.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isosano5-9010-7016-horizontal-up-front-view-ro-v1GX5QZ.jpg",
-      sourceUrl: "https://terasteel.rs/proizvoda/isosano-5-rf-krovni-paneli"
-    }
   ].map((product) => {
     const slug = slugify(product.name);
 

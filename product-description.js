@@ -162,16 +162,5 @@ window.STEEL_CONCEPT_PRODUCT_DESCRIPTIONS = {
     ],
     "diagramImage": "https://terasteel.blob.core.windows.net/cmsresources/2025-05-TRS-schita-panouri-acoperis_ISOAC5_LS9U92U.jpg",
     "detailImage": "https://terasteel.blob.core.windows.net/cmsresources/ISOAC 5 SERBIA SIDET62VT.png"
-  },
-  "isosano5-rf-ls": {
-    "paragraphs": [
-      "PIR jezgro obezbeđuje odličnu otpornost na požar, usporava širenje plamena i doprinosi sigurnosti objekta. Paneli su idealni za krovove sa nagibom većim od 7%, obezbeđujući zaptivenost, stabilnost i estetski ujednačen izgled.",
-      "Preporučene primene: prehrambena industrija, farmaceutska industrija, laboratorije i drugi objekti koji zahtevaju strogu higijenu i kontrolisano okruženje.",
-      "Preporučuje se tehnička provera svake primene u skladu sa specifičnostima projekta.",
-      "Struktura sa 5 rebara obezbeđuje odličnu krutost, a jezgro od mineralne vune doprinosi stabilnosti konstrukcije, istovremeno pružajući efikasnu protivpožarnu barijeru.",
-      "Mineralna vuna ne sagoreva i ne oslobađa toksične gasove u slučaju požara, čime se obezbeđuje povećana zaštita i udobnost u dugotrajnom radu."
-    ],
-    "diagramImage": "https://terasteel.blob.core.windows.net/cmsresources/2025-05-TRS-schita-panouri-acoperis_ISOAC5_LSBRRYQ.jpg",
-    "detailImage": "https://terasteel.blob.core.windows.net/cmsresources/ISOAC 5 SERBIA SIDECIAK3.png"
   }
 };
