@@ -113,26 +113,31 @@ img {
   gap: 1.2rem;
 }
 
+.header-spacer {
+  display: none;
+}
+
 .header-call {
   display: none;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
+  width: 2.625rem;
+  height: 2.625rem;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
   color: var(--ink);
+  box-shadow: 0 10px 22px rgba(17, 17, 17, 0.08);
 }
 
 .header-call svg {
-  width: 1rem;
-  height: 1rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.9;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+.header-call:hover {
+  background: #ffffff;
 }
 
 .header-link,
@@ -733,6 +738,18 @@ h3 {
     display: grid;
     grid-template-columns: minmax(0, max-content) 1fr minmax(0, max-content);
     gap: 0.5rem;
+  }
+
+  .header-spacer {
+    display: inline-flex;
+    grid-column: 1;
+    justify-self: start;
+    align-items: center;
+    min-height: 2.5rem;
+    color: transparent;
+    font-weight: 700;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .brand {
