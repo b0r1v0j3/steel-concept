@@ -665,10 +665,6 @@ h3 {
   padding: 1.35rem;
 }
 
-.detail-card-wide {
-  padding-top: 1.5rem;
-}
-
 .detail-copy {
   display: grid;
   gap: 1rem;
@@ -701,6 +697,24 @@ h3 {
 
 .technical-table-wrap {
   overflow-x: auto;
+}
+
+.detail-table-section {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.detail-table-section h3 {
+  margin: 0;
+}
+
+.detail-table-section .technical-table {
+  border-top: 1px solid var(--line);
 }
 
 .technical-table {
