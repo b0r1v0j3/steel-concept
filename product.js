@@ -105,18 +105,6 @@ const renderSpecs = (item) => {
     .join("");
 };
 
-const renderTechnicalRows = (rows = []) =>
-  rows
-    .map(
-      ([label, value]) => `
-        <tr>
-          <th scope="row">${escapeHtml(cleanCopy(label))}</th>
-          <td>${escapeHtml(cleanCopy(value))}</td>
-        </tr>
-      `
-    )
-    .join("");
-
 if (!product) {
   if (page) {
     page.hidden = true;
@@ -140,7 +128,6 @@ if (!product) {
   const mainFeatures = document.querySelector("[data-product-main-features]");
   const accessories = document.querySelector("[data-product-accessories]");
   const packaging = document.querySelector("[data-product-packaging]");
-  const technicalTable = document.querySelector("[data-product-technical-table]");
 
   document.title = `${getDisplayTitle(product)} | Steel Concept`;
 
@@ -206,10 +193,6 @@ if (!product) {
 
   if (packaging) {
     packaging.innerHTML = renderParagraphs(details.packaging, product);
-  }
-
-  if (technicalTable) {
-    technicalTable.innerHTML = renderTechnicalRows(details.technicalRows);
   }
 
   if (page) {
