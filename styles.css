@@ -1011,14 +1011,36 @@ h3 {
 
   .footer-shell {
     grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "company pib"
+      "address mb";
     align-items: start;
     gap: 0.35rem 1rem;
     padding: 0.85rem 0 1rem;
   }
 
   .footer-company {
+    grid-area: company;
     font-size: 0.9rem;
     letter-spacing: 0.06em;
+  }
+
+  .footer-shell > .footer-line:nth-of-type(2) {
+    grid-area: address;
+  }
+
+  .footer-shell > .footer-line:nth-of-type(3) {
+    grid-area: pib;
+  }
+
+  .footer-shell > .footer-line:nth-of-type(4) {
+    grid-area: mb;
+  }
+
+  .footer-shell > .footer-line:nth-of-type(3),
+  .footer-shell > .footer-line:nth-of-type(4) {
+    text-align: right;
+    justify-self: end;
   }
 
   .footer-line,
