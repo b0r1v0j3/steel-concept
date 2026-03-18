@@ -1,73 +1,116 @@
 /**
- * STEEL CONCEPT - Clean JS
- * Minimalist Interactions
+ * STEEL CONCEPT
+ * Main Interaction Logic
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Set Current Year
+
+  // Auto update copyright year
   const yearSpan = document.getElementById('year');
-  if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-  }
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // Mobile Menu Toggle
-  const navToggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('nav');
-  const navLinks = document.querySelectorAll('.nav-links a, .nav .btn');
+  // Header scroll behavior (Hide on scroll down, show on scroll up)
+  const header = document.getElementById('header');
+  let lastScrollY = window.scrollY;
 
-  if (navToggle && nav) {
-      navToggle.addEventListener('click', () => {
-          nav.classList.toggle('active');
-          
-          // Animate hamburger
-          const spans = navToggle.querySelectorAll('span');
-          if (nav.classList.contains('active')) {
-              spans[0].style.transform = 'rotate(45deg)';
-              spans[0].style.top = '11px';
-              spans[1].style.opacity = '0';
-              spans[2].style.transform = 'rotate(-45deg)';
-              spans[2].style.top = '11px';
+  window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+          if (window.scrollY > lastScrollY) {
+              // Scrolling down
+              header.classList.add('hide-up');
           } else {
-              spans[0].style.transform = 'rotate(0)';
-              spans[0].style.top = '0px';
-              spans[1].style.opacity = '1';
-              spans[2].style.transform = 'rotate(0)';
-              spans[2].style.top = '22px';
+              // Scrolling up
+              header.classList.remove('hide-up');
           }
+      } else {
+          header.classList.remove('hide-up');
+      }
+      lastScrollY = window.scrollY;
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  if (menuToggle && mainNav) {
+      menuToggle.addEventListener('click', () => {
+          mainNav.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
       });
 
-      // Close menu when a link is clicked
+      // Close menu when clicking a link
       navLinks.forEach(link => {
           link.addEventListener('click', () => {
-              if (window.innerWidth <= 768) {
-                  nav.classList.remove('active');
-                  const spans = navToggle.querySelectorAll('span');
-                  spans[0].style.transform = 'rotate(0)';
-                  spans[0].style.top = '0px';
-                  spans[1].style.opacity = '1';
-                  spans[2].style.transform = 'rotate(0)';
-                  spans[2].style.top = '22px';
-              }
+              mainNav.classList.remove('active');
+              menuToggle.classList.remove('active');
+              menuToggle.setAttribute('aria-expanded', 'false');
           });
       });
   }
 
-  // Simple Form Submission hook
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+              e.preventDefault();
+              const headerOffset = 80; // Size of fixed header
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                  top: offsetPosition,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
+
+  // Simple animation observer
+  const animateElements = document.querySelectorAll('.fade-in-up');
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+          }
+      });
+  }, { threshold: 0.1 });
+
+  animateElements.forEach(el => observer.observe(el));
+
+  // Form submission handler
+  const inquiryForm = document.getElementById('inquiryForm');
+  const formMessage = document.getElementById('formMessage');
+
+  if (inquiryForm) {
+      inquiryForm.addEventListener('submit', (e) => {
           e.preventDefault();
-          const btn = contactForm.querySelector('button');
+          
+          const btn = inquiryForm.querySelector('button[type="submit"]');
           const originalText = btn.textContent;
-          btn.textContent = 'Slanje...';
+          
+          btn.textContent = 'Obradjujemo...';
           btn.disabled = true;
 
+          // Mock sending delay
           setTimeout(() => {
-              alert('Vaš zahtev je uspešno poslat. Kontaktiraćemo vas u najkraćem roku!');
-              contactForm.reset();
+              formMessage.textContent = 'Vaš zahtev je uspešno prosleđen direkciji. Kontaktiraćemo Vas vrlo brzo.';
+              formMessage.style.color = '#27ae60'; // Success green
               btn.textContent = originalText;
               btn.disabled = false;
-          }, 1000);
+              inquiryForm.reset();
+              
+              setTimeout(() => {
+                  formMessage.textContent = '';
+              }, 6000);
+          }, 1200);
       });
   }
 });
