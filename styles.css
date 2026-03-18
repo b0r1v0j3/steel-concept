@@ -771,6 +771,41 @@ h3 {
   padding: 1.6rem;
 }
 
+.site-footer {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.footer-shell {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.25rem 0 2rem;
+}
+
+.footer-company,
+.footer-line {
+  margin: 0;
+}
+
+.footer-company {
+  color: var(--ink);
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.footer-line,
+.footer-address {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.footer-address:hover {
+  color: var(--ink);
+}
+
 .reveal {
   opacity: 1;
   transform: translateY(0);
@@ -941,6 +976,21 @@ h3 {
   .detail-card,
   .product-missing-shell {
     padding: 1.15rem;
+  }
+
+  .footer-shell {
+    padding: 1.1rem 0 1.6rem;
+  }
+
+  .footer-company {
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-line,
+  .footer-address {
+    font-size: 0.92rem;
+    line-height: 1.65;
   }
 
   .product-main {
