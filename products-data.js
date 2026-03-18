@@ -196,6 +196,7 @@
     {
       name: "ISOSANO5 LS",
       fullName: "Termoizolacioni krovni paneli ISOSANO5 LS",
+      displayFullName: "Agro krovni sendvič paneli",
       type: "krovni",
       core: "PUR",
       fixation: "Vidljivi spoj",
@@ -211,7 +212,7 @@
     return {
       ...product,
       displayName: getSeriesLabel(product.type),
-      displayFullName: getDisplayTitle(product),
+      displayFullName: product.displayFullName ?? getDisplayTitle(product),
       slug,
       pageHref: `proizvod.html?slug=${encodeURIComponent(slug)}`
     };
