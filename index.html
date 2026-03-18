@@ -1,68 +1,253 @@
 <!DOCTYPE html>
 <html lang="sr-Latn-RS">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Steel Concept | Sendvic paneli</title>
-    <meta
-      name="description"
-      content="Steel Concept sendvic paneli za hale, fasade i krovove."
-    />
-    <meta name="theme-color" content="#060b11" />
-    <meta property="og:title" content="Steel Concept" />
-    <meta
-      property="og:description"
-      content="Steel Concept sendvic paneli za hale, fasade i krovove."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.steel-concept.com/" />
-    <link rel="canonical" href="https://www.steel-concept.com/" />
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="styles.css" />
-    <script defer src="script.js"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Steel Concept DOO",
-        "url": "https://www.steel-concept.com/",
-        "telephone": "+381600705045",
-        "email": "branislavmilutinovic1969@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Delfe Ivanić 28",
-          "addressLocality": "Kać",
-          "addressCountry": "RS"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <a class="skip-link" href="#poster">Pređi na glavni sadržaj</a>
-
-    <main>
-      <section class="poster-page">
-        <div class="poster-frame reveal" id="poster">
-          <img
-            class="poster-image"
-            src="assets/stlcnpt.png?v=1"
-            alt="Steel Concept poster sa ponudom sendvič panela"
-          />
-
-          <footer class="poster-footer" aria-label="Podaci firme">
-            <div class="poster-footer-copy">
-              <strong>Steel Concept DOO</strong>
-              <span>Delfe Ivanic 28, Kac</span>
-              <span>060 070 5045</span>
-            </div>
-
-            <a class="poster-footer-button" href="tel:+381600705045">
-              POZOVI
-              <span class="sr-only">Pozovi broj 060 070 5045</span>
-            </a>
-          </footer>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steel Concept | Sendvič paneli i čelični sistemi</title>
+  <meta name="description" content="Steel Concept nudi zidne, krovne i frigo sendvič panele za hale, skladišta, hladnjače i komercijalne objekte." />
+  
+  <meta property="og:title" content="Steel Concept | Sendvič paneli" />
+  <meta property="og:description" content="Zidni, krovni i frigo paneli za objekte koji traže čist izgled, brzu montažu i dugotrajan rezultat." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.steel-concept.com/" />
+  <meta property="og:image" content="https://www.steel-concept.com/assets/homepage-poster-fixed.png" />
+  
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  
+  <header class="header">
+    <div class="container container-header">
+      <a href="#" class="brand">
+        <img src="assets/brand-mark.svg" alt="Steel Concept Logo" class="brand-logo" />
+        <div class="brand-text">
+          <strong>Steel Concept</strong>
         </div>
-      </section>
-    </main>
-  </body>
+      </a>
+
+      <button class="nav-toggle" aria-label="Otvori navigaciju" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <div class="nav-links">
+          <a href="#proizvodi">Proizvodi</a>
+          <a href="#projekti">Sistemi</a>
+          <a href="#primena">Primena</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <a href="tel:+381600705045" class="btn btn-primary">Pozovite nas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-image-wrapper">
+        <img src="assets/homepage-poster-fixed.png" alt="Industrijski objekat od panela" class="hero-image">
+      </div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <p class="eyebrow">Vaš partner u gradnji</p>
+          <h1 class="hero-title">Otkrijte sendvič panele za potpunu arhitektonsku slobodu.</h1>
+          <p class="hero-text">Zidni, krovni i frigo termoizolacioni paneli sa krutom poliuretanskom penom (PUR, PIR) i mineralnom vunom. Pouzdana rešenja za najzahtevnije objekte.</p>
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-primary">Zahtev za ponudu</a>
+            <a href="#proizvodi" class="btn btn-outline">Vidi detalje</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROIZVODI SECTION -->
+    <section class="section bg-light" id="proizvodi">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Termoizolacioni Paneli</h2>
+          <p class="section-subtitle">Naša ponuda pokriva sve potrebe modernih industrijskih i komercijalnih objekata sa fokusom na energetsku efikasnost i dugotrajnost.</p>
+        </div>
+
+        <div class="product-grid">
+          <!-- Zidni Paneli -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/panel-wall-system.svg" alt="Zidni paneli">
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Zidni sistemi</div>
+              <h3 class="product-title">Fasadni i zidni paneli</h3>
+              <p class="product-desc">Zidni paneli predstavljaju idealno rešenje za podupiranje konstrukcija sa visokim stepenom termalne izolacije i čistom estetikom.</p>
+              <a href="#kontakt" class="link-arrow">Zatraži ponudu &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Krovni Paneli -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/panel-roof-system.svg" alt="Krovni paneli">
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Krovni sistemi</div>
+              <h3 class="product-title">Krovni termoizolacioni paneli</h3>
+              <p class="product-desc">Otporni i izdržljivi, prilagođeni za logističke centre, hale i komercijalne zgrade. Laka montaža i savršeno zaptivanje.</p>
+              <a href="#kontakt" class="link-arrow">Zatraži ponudu &rarr;</a>
+            </div>
+          </article>
+
+          <!-- Frigo Paneli -->
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/interior-strip.png" alt="Frigo paneli">
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Frigo sistemi</div>
+              <h3 class="product-title">Paneli za hladnjače</h3>
+              <p class="product-desc">Specijalizovani paneli za održavanje strogo kontrolisanih temperaturnih režima. Za prehrambenu industriju i komore.</p>
+              <a href="#kontakt" class="link-arrow">Zatraži ponudu &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SISTEMI / STRUKTURA SECTION -->
+    <section class="section" id="projekti">
+      <div class="container">
+        <div class="split-layout">
+          <div class="split-content">
+            <h2 class="section-title">Konstruktivna integracija</h2>
+            <p class="section-subtitle">Steel Concept paneli se besprekorno uklapaju u čelične i betonske okvire, pružajući jasan i organizovan proces gradnje.</p>
+            <ul class="check-list">
+              <li>Otpornost i izdržljivost na vremenske uticaje</li>
+              <li>Fleksibilnost u industrijskom dizajnu</li>
+              <li>Ekstremno brza montaža na gradilištu</li>
+              <li>Potpuna usklađenost zidnih i krovnih spojeva</li>
+            </ul>
+          </div>
+          <div class="split-image">
+            <img src="assets/steel-hall-cutaway.svg" alt="Presek hale sa panelima">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIMENA SECTION -->
+    <section class="section bg-dark text-white" id="primena">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title text-white">Zajedno gradimo bolje</h2>
+          <p class="section-subtitle text-white">Gde se naši panelni sistemi najčešće koriste</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="industry-box">
+            <h4>Proizvodne hale</h4>
+            <p>Konstrukcije za tešku namenu sa ogromnim rasponima.</p>
+          </div>
+          <div class="industry-box">
+            <h4>Logistički centri</h4>
+            <p>Zgrade velikih gabarita gde je brzina zatvaranja kritična.</p>
+          </div>
+          <div class="industry-box">
+            <h4>Hladnjače</h4>
+            <p>Objekti koji traže perfektno dihtovanje i debelu izolaciju.</p>
+          </div>
+          <div class="industry-box">
+            <h4>Komercijalni objekti</h4>
+            <p>Sistemi koji traže vizuelnu perfekciju za salone i markete.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT SECTION -->
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h2 class="section-title">Kontaktirajte nas</h2>
+            <p class="section-subtitle">Zahtevi za ponudu, tehnička podrška i saveti pri odabiru panela za vaš objekat.</p>
+            
+            <div class="contact-details">
+              <div class="contact-item">
+                <span class="contact-label">Telefon za upite</span>
+                <a href="tel:+381600705045" class="contact-link">060 070 5045</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Email adresa</span>
+                <a href="mailto:branislavmilutinovic1969@gmail.com" class="contact-link">branislavmilutinovic1969@gmail.com</a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Adresa sedišta</span>
+                <span class="contact-text">Delfe Ivanić 28, Kać</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <form class="clean-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ime">Ime i prezime</label>
+                  <input type="text" id="ime" required>
+                </div>
+                <div class="form-group">
+                  <label for="kompanija">Kompanija (Opciono)</label>
+                  <input type="text" id="kompanija">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email adresa</label>
+                <input type="email" id="email" required>
+              </div>
+              <div class="form-group">
+                <label for="poruka">Vaš zahtev ili kvadratura objekta</label>
+                <textarea id="poruka" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Pošalji zahtev</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-col">
+        <img src="assets/brand-mark.svg" alt="Steel Concept" class="footer-logo">
+        <p class="footer-desc">Zidni i krovni termoizolacioni paneli proverenog kvaliteta.</p>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigacija</h4>
+        <ul class="footer-links">
+          <li><a href="#proizvodi">Proizvodi</a></li>
+          <li><a href="#projekti">Sistemi gradnje</a></li>
+          <li><a href="#primena">Primena panela</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-heading">Kontakt</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+381600705045">060 070 5045</a></li>
+          <li><a href="mailto:branislavmilutinovic1969@gmail.com">branislavmilutinovic1969@gmail.com</a></li>
+          <li>Kać, Srbija</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Steel Concept. Sva prava zadržana.</p>
+    </div>
+  </footer>
+
+</body>
 </html>

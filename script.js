@@ -1,52 +1,73 @@
-const header = document.querySelector("[data-header]");
-const menuToggle = document.querySelector("[data-menu-toggle]");
-const nav = document.querySelector("[data-nav]");
+/**
+ * STEEL CONCEPT - Clean JS
+ * Minimalist Interactions
+ */
 
-const syncHeaderState = () => {
-  if (!header) {
-    return;
+document.addEventListener('DOMContentLoaded', () => {
+  // Set Current Year
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
   }
 
-  header.classList.toggle("scrolled", window.scrollY > 16);
-};
+  // Mobile Menu Toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('nav');
+  const navLinks = document.querySelectorAll('.nav-links a, .nav .btn');
 
-syncHeaderState();
-window.addEventListener("scroll", syncHeaderState, { passive: true });
+  if (navToggle && nav) {
+      navToggle.addEventListener('click', () => {
+          nav.classList.toggle('active');
+          
+          // Animate hamburger
+          const spans = navToggle.querySelectorAll('span');
+          if (nav.classList.contains('active')) {
+              spans[0].style.transform = 'rotate(45deg)';
+              spans[0].style.top = '11px';
+              spans[1].style.opacity = '0';
+              spans[2].style.transform = 'rotate(-45deg)';
+              spans[2].style.top = '11px';
+          } else {
+              spans[0].style.transform = 'rotate(0)';
+              spans[0].style.top = '0px';
+              spans[1].style.opacity = '1';
+              spans[2].style.transform = 'rotate(0)';
+              spans[2].style.top = '22px';
+          }
+      });
 
-if (menuToggle && nav) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = nav.classList.toggle("is-open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    document.body.classList.toggle("nav-open", isOpen);
-  });
-
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("is-open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("nav-open");
-    });
-  });
-}
-
-const revealElements = document.querySelectorAll(".reveal");
-
-if (revealElements.length > 0) {
-  const showReveals = () => {
-    revealElements.forEach((element) => element.classList.add("is-visible"));
-  };
-
-  if ("requestAnimationFrame" in window) {
-    window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(showReveals);
-    });
-  } else {
-    showReveals();
+      // Close menu when a link is clicked
+      navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              if (window.innerWidth <= 768) {
+                  nav.classList.remove('active');
+                  const spans = navToggle.querySelectorAll('span');
+                  spans[0].style.transform = 'rotate(0)';
+                  spans[0].style.top = '0px';
+                  spans[1].style.opacity = '1';
+                  spans[2].style.transform = 'rotate(0)';
+                  spans[2].style.top = '22px';
+              }
+          });
+      });
   }
-}
 
-const yearElement = document.querySelector("[data-year]");
+  // Simple Form Submission hook
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const btn = contactForm.querySelector('button');
+          const originalText = btn.textContent;
+          btn.textContent = 'Slanje...';
+          btn.disabled = true;
 
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+          setTimeout(() => {
+              alert('Vaš zahtev je uspešno poslat. Kontaktiraćemo vas u najkraćem roku!');
+              contactForm.reset();
+              btn.textContent = originalText;
+              btn.disabled = false;
+          }, 1000);
+      });
+  }
+});
