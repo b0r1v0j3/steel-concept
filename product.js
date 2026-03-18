@@ -87,6 +87,7 @@ const setFigureImage = (figure, image, src, alt) => {
 
 const renderSpecs = (item) => {
   const specs = [
+    { label: "Tip panela", value: getSeriesLabel(item) },
     { label: "Jezgro", value: item.core },
     { label: "Spoj", value: item.fixation },
     { label: "Primena", value: item.application.join(", ") }
