@@ -778,7 +778,7 @@ h3 {
 @media (max-width: 980px) {
   .header-shell {
     display: grid;
-    grid-template-columns: minmax(0, max-content) 1fr minmax(0, max-content);
+    grid-template-columns: 5rem minmax(0, 1fr) 5rem;
     gap: 0.5rem;
   }
 
@@ -799,6 +799,8 @@ h3 {
     grid-column: 1;
     justify-self: start;
     align-items: center;
+    width: 5rem;
+    min-width: 0;
   }
 
   .header-spacer {
@@ -807,12 +809,18 @@ h3 {
 
   .brand {
     grid-column: 2;
+    width: 100%;
     justify-self: center;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
   }
 
   .header-actions {
     grid-column: 3;
+    width: 5rem;
     justify-self: end;
+    justify-content: flex-end;
     gap: 0;
   }
 
@@ -827,9 +835,11 @@ h3 {
   .filter-toggle {
     display: inline-flex;
     grid-column: 1;
+    width: 5rem;
     justify-self: start;
     align-items: center;
     min-height: 2.5rem;
+    min-width: 0;
   }
 
   .catalog-shell {
@@ -896,6 +906,8 @@ h3 {
   .brand strong {
     font-size: 0.86rem;
     letter-spacing: 0.12em;
+    line-height: 1;
+    white-space: nowrap;
   }
 
   .results-head {
