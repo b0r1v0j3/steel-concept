@@ -199,8 +199,8 @@
       type: "krovni",
       core: "PUR",
       fixation: "Vidljivi spoj",
-      application: ["Stroge higijenske primene"],
-      summary: "PUR krovni panel za objekte koji traže higijenski prilagođene završne obloge.",
+      application: ["Objekti za uzgoj životinja"],
+      summary: "PUR krovni panel za objekte za uzgoj životinja.",
       image:
         "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isosano5-9010-7016-horizontal-up-front-view-ro-v1CRP0M.jpg",
       sourceUrl: "https://terasteel.rs/proizvoda/isosano-5-krovni-paneli"
