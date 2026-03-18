@@ -522,8 +522,9 @@ h3 {
 .product-lead {
   margin: 0;
   color: var(--muted);
-  font-size: 1.06rem;
-  line-height: 1.8;
+  font-size: 1.14rem;
+  font-weight: 700;
+  line-height: 1.75;
   max-width: 60ch;
 }
 
@@ -544,33 +545,6 @@ h3 {
 
 .technical-table-compact td {
   font-size: 0.96rem;
-}
-
-.detail-specs {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-}
-
-.spec-card {
-  display: grid;
-  gap: 0.35rem;
-  padding: 1rem 1.05rem;
-  box-shadow: none;
-}
-
-.spec-card span {
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.spec-card strong {
-  color: var(--ink);
-  font-size: 1rem;
-  line-height: 1.4;
 }
 
 .detail-grid {

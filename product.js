@@ -86,26 +86,6 @@ const setFigureImage = (figure, image, src, alt) => {
   image.alt = alt;
 };
 
-const renderSpecs = (item) => {
-  const specs = [
-    { label: "Tip panela", value: getSeriesLabel(item) },
-    { label: "Jezgro", value: item.core },
-    { label: "Spoj", value: item.fixation },
-    { label: "Primena", value: item.application.join(", ") }
-  ];
-
-  return specs
-    .map(
-      (spec) => `
-        <article class="spec-card">
-          <span>${escapeHtml(spec.label)}</span>
-          <strong>${escapeHtml(spec.value)}</strong>
-        </article>
-      `
-    )
-    .join("");
-};
-
 const renderTechnicalRows = (rows = []) =>
   rows
     .map(
@@ -130,7 +110,6 @@ if (!product) {
   const name = document.querySelector("[data-product-name]");
   const summary = document.querySelector("[data-product-summary]");
   const image = document.querySelector("[data-product-image]");
-  const specs = document.querySelector("[data-product-specs]");
   const heroSpecsWrap = document.querySelector("[data-product-hero-specs-wrap]");
   const heroSpecsTable = document.querySelector("[data-product-hero-specs]");
   const descriptionSection = document.querySelector("[data-product-description-section]");
@@ -160,7 +139,7 @@ if (!product) {
   }
 
   if (heroSpecsTable && heroSpecsWrap) {
-    const rows = productHeroSpecs[slug] ?? [];
+    const rows = [["Tip panela", getSeriesLabel(product)], ...(productHeroSpecs[slug] ?? [])];
     heroSpecsTable.innerHTML = renderTechnicalRows(rows);
     heroSpecsWrap.hidden = rows.length === 0;
   }
@@ -168,10 +147,6 @@ if (!product) {
   if (image) {
     image.src = product.image;
     image.alt = getDisplayTitle(product);
-  }
-
-  if (specs) {
-    specs.innerHTML = renderSpecs(product);
   }
 
   if (descriptionCopy) {
