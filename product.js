@@ -72,14 +72,6 @@ const renderSpecs = (item) => {
     .join("");
 };
 
-const renderChips = (item) => `
-  <span class="product-chip">${escapeHtml(item.core)}</span>
-  <span class="product-chip">${escapeHtml(item.fixation)}</span>
-  ${item.application
-    .map((entry) => `<span class="product-chip">${escapeHtml(entry)}</span>`)
-    .join("")}
-`;
-
 const renderTechnicalRows = (rows = []) =>
   rows
     .map(
@@ -105,7 +97,6 @@ if (!product) {
   const summary = document.querySelector("[data-product-summary]");
   const image = document.querySelector("[data-product-image]");
   const series = document.querySelector("[data-product-series]");
-  const chips = document.querySelector("[data-product-chips]");
   const specs = document.querySelector("[data-product-specs]");
   const descriptionSection = document.querySelector("[data-product-description-section]");
   const descriptionCopy = document.querySelector("[data-product-description-copy]");
@@ -140,10 +131,6 @@ if (!product) {
 
   if (series) {
     series.textContent = getSeriesLabel(product);
-  }
-
-  if (chips) {
-    chips.innerHTML = renderChips(product);
   }
 
   if (specs) {
