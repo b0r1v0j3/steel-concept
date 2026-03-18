@@ -797,8 +797,10 @@ h3 {
 
 .footer-shell {
   display: grid;
-  gap: 0.45rem;
-  padding: 1.25rem 0 2rem;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.5rem 1.6rem;
+  padding: 0.9rem 0 1rem;
 }
 
 .footer-company,
@@ -811,13 +813,20 @@ h3 {
   font-size: 0.96rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
 .footer-line,
 .footer-address {
   color: var(--muted);
   font-size: 0.95rem;
-  line-height: 1.7;
+  line-height: 1.45;
+}
+
+.footer-address {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
 }
 
 .footer-address:hover {
@@ -1001,7 +1010,10 @@ h3 {
   }
 
   .footer-shell {
-    padding: 1.1rem 0 1.6rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.35rem 1rem;
+    padding: 0.85rem 0 1rem;
   }
 
   .footer-company {
@@ -1012,7 +1024,7 @@ h3 {
   .footer-line,
   .footer-address {
     font-size: 0.92rem;
-    line-height: 1.65;
+    line-height: 1.5;
   }
 
   .product-main {
