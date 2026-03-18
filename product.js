@@ -86,6 +86,23 @@ const setFigureImage = (figure, image, src, alt) => {
   image.alt = alt;
 };
 
+const copyToClipboard = async (value) => {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+
+  const helper = document.createElement("textarea");
+  helper.value = value;
+  helper.setAttribute("readonly", "");
+  helper.style.position = "absolute";
+  helper.style.left = "-9999px";
+  document.body.append(helper);
+  helper.select();
+  document.execCommand("copy");
+  helper.remove();
+};
+
 const renderTechnicalRows = (rows = []) =>
   rows
     .map(
@@ -110,6 +127,8 @@ if (!product) {
   const name = document.querySelector("[data-product-name]");
   const summary = document.querySelector("[data-product-summary]");
   const image = document.querySelector("[data-product-image]");
+  const shareButton = document.querySelector("[data-share-button]");
+  const shareFeedback = document.querySelector("[data-share-feedback]");
   const heroSpecsWrap = document.querySelector("[data-product-hero-specs-wrap]");
   const heroSpecsTable = document.querySelector("[data-product-hero-specs]");
   const descriptionSection = document.querySelector("[data-product-description-section]");
@@ -136,6 +155,57 @@ if (!product) {
 
   if (summary) {
     summary.textContent = product.summary;
+  }
+
+  let shareFeedbackTimeout;
+  const setShareFeedback = (message) => {
+    if (!shareFeedback) {
+      return;
+    }
+
+    window.clearTimeout(shareFeedbackTimeout);
+    shareFeedback.textContent = message;
+
+    if (!message) {
+      return;
+    }
+
+    shareFeedbackTimeout = window.setTimeout(() => {
+      shareFeedback.textContent = "";
+    }, 2200);
+  };
+
+  if (shareButton) {
+    shareButton.addEventListener("click", async () => {
+      const shareData = {
+        title: getDisplayTitle(product),
+        text: product.summary,
+        url: window.location.href
+      };
+
+      try {
+        if (typeof navigator.share === "function") {
+          await navigator.share(shareData);
+          setShareFeedback("Link podeljen");
+          return;
+        }
+
+        await copyToClipboard(shareData.url);
+        setShareFeedback("Link kopiran");
+      } catch (error) {
+        if (error?.name === "AbortError") {
+          setShareFeedback("");
+          return;
+        }
+
+        try {
+          await copyToClipboard(shareData.url);
+          setShareFeedback("Link kopiran");
+        } catch {
+          setShareFeedback("Deljenje nije uspelo");
+        }
+      }
+    });
   }
 
   if (heroSpecsTable && heroSpecsWrap) {
