@@ -127,8 +127,7 @@ if (!product) {
   const name = document.querySelector("[data-product-name]");
   const summary = document.querySelector("[data-product-summary]");
   const image = document.querySelector("[data-product-image]");
-  const shareButton = document.querySelector("[data-share-button]");
-  const shareFeedback = document.querySelector("[data-share-feedback]");
+  const shareButtons = Array.from(document.querySelectorAll("[data-share-button]"));
   const heroSpecsWrap = document.querySelector("[data-product-hero-specs-wrap]");
   const heroSpecsTable = document.querySelector("[data-product-hero-specs]");
   const descriptionSection = document.querySelector("[data-product-description-section]");
@@ -157,26 +156,29 @@ if (!product) {
     summary.textContent = product.summary;
   }
 
-  let shareFeedbackTimeout;
-  const setShareFeedback = (message) => {
-    if (!shareFeedback) {
+  const shareFeedbackTimeouts = new WeakMap();
+  const setShareFeedback = (message, feedbackNode) => {
+    if (!feedbackNode) {
       return;
     }
 
-    window.clearTimeout(shareFeedbackTimeout);
-    shareFeedback.textContent = message;
+    window.clearTimeout(shareFeedbackTimeouts.get(feedbackNode));
+    feedbackNode.textContent = message;
 
     if (!message) {
       return;
     }
 
-    shareFeedbackTimeout = window.setTimeout(() => {
-      shareFeedback.textContent = "";
+    const timeoutId = window.setTimeout(() => {
+      feedbackNode.textContent = "";
     }, 2200);
+
+    shareFeedbackTimeouts.set(feedbackNode, timeoutId);
   };
 
-  if (shareButton) {
+  shareButtons.forEach((shareButton) => {
     shareButton.addEventListener("click", async () => {
+      const shareFeedback = shareButton.parentElement?.querySelector("[data-share-feedback]");
       const shareData = {
         title: getDisplayTitle(product),
         text: product.summary,
@@ -186,27 +188,27 @@ if (!product) {
       try {
         if (typeof navigator.share === "function") {
           await navigator.share(shareData);
-          setShareFeedback("Link podeljen");
+          setShareFeedback("Link podeljen", shareFeedback);
           return;
         }
 
         await copyToClipboard(shareData.url);
-        setShareFeedback("Link kopiran");
+        setShareFeedback("Link kopiran", shareFeedback);
       } catch (error) {
         if (error?.name === "AbortError") {
-          setShareFeedback("");
+          setShareFeedback("", shareFeedback);
           return;
         }
 
         try {
           await copyToClipboard(shareData.url);
-          setShareFeedback("Link kopiran");
+          setShareFeedback("Link kopiran", shareFeedback);
         } catch {
-          setShareFeedback("Deljenje nije uspelo");
+          setShareFeedback("Deljenje nije uspelo", shareFeedback);
         }
       }
     });
-  }
+  });
 
   if (heroSpecsTable && heroSpecsWrap) {
     const rows = [["Tip panela", getSeriesLabel(product)], ...(productHeroSpecs[slug] ?? [])];
