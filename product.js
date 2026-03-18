@@ -87,7 +87,6 @@ const setFigureImage = (figure, image, src, alt) => {
 
 const renderSpecs = (item) => {
   const specs = [
-    { label: "Tip panela", value: getSeriesLabel(item) },
     { label: "Jezgro", value: item.core },
     { label: "Spoj", value: item.fixation },
     { label: "Primena", value: item.application.join(", ") }
@@ -129,7 +128,6 @@ if (!product) {
   const name = document.querySelector("[data-product-name]");
   const summary = document.querySelector("[data-product-summary]");
   const image = document.querySelector("[data-product-image]");
-  const series = document.querySelector("[data-product-series]");
   const specs = document.querySelector("[data-product-specs]");
   const descriptionSection = document.querySelector("[data-product-description-section]");
   const descriptionCopy = document.querySelector("[data-product-description-copy]");
@@ -160,10 +158,6 @@ if (!product) {
   if (image) {
     image.src = product.image;
     image.alt = getDisplayTitle(product);
-  }
-
-  if (series) {
-    series.textContent = getSeriesLabel(product);
   }
 
   if (specs) {
