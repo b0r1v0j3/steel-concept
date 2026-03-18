@@ -26,6 +26,9 @@ const labelMap = {
   type: {
     zidni: "Zidni paneli",
     krovni: "Krovni paneli"
+  },
+  application: {
+    "Objekti za uzgoj životinja": "Agro / uzgoj životinja"
   }
 };
 
