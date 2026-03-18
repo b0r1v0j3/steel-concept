@@ -11,18 +11,8 @@
       .replace(/^-+|-+$/g, "");
 
   const getSeriesLabel = (type) => (type === "zidni" ? "Zidni panel" : "Krovni panel");
-  const getDisplayTitle = (product) => {
-    const normalizedFullName = normalizeText(product.fullName);
-    const isThermo = normalizedFullName.includes("termoizolacion");
-
-    if (isThermo) {
-      return product.type === "zidni"
-        ? "Termoizolacioni zidni paneli"
-        : "Termoizolacioni krovni paneli";
-    }
-
-    return product.type === "zidni" ? "Zidni sendvič paneli" : "Krovni sendvič paneli";
-  };
+  const getDisplayTitle = (product) =>
+    product.type === "zidni" ? "Zidni sendvič paneli" : "Krovni sendvič paneli";
 
   const products = [
     {
