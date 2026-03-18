@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sr-Latn-RS">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steel Concept | Proizvod</title>
+    <meta
+      name="description"
+      content="Pregled proizvoda iz Steel Concept kataloga sendvič panela."
+      data-page-description
+    />
+    <meta name="theme-color" content="#f5f5f7" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='white'/%3E%3Crect x='14' y='30' width='36' height='4' rx='2' fill='%23111111'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="products-data.js"></script>
+    <script defer src="product-description.js"></script>
+    <script defer src="product-details.js"></script>
+    <script defer src="product.js"></script>
+  </head>
+  <body class="product-view">
+    <a class="skip-link" href="#product-main">Pređi na sadržaj</a>
+
+    <header class="site-header">
+      <div class="container header-shell">
+        <a class="brand" href="index.html#catalog" aria-label="Steel Concept katalog">
+          <strong>STEEL CONCEPT</strong>
+        </a>
+
+        <div class="header-actions">
+          <a class="header-link" href="tel:+381600705045">060 07 05 045</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="product-main" class="product-main" data-product-page hidden>
+      <div class="container">
+        <a class="back-link" href="index.html#catalog">Nazad</a>
+
+        <section class="product-hero">
+          <div class="product-visual">
+            <img src="" alt="" data-product-image />
+          </div>
+
+          <div class="product-summary">
+            <p class="filters-kicker" data-product-series></p>
+            <h1 data-product-name></h1>
+            <p class="product-lead" data-product-summary></p>
+
+            <div class="detail-chips" data-product-chips></div>
+
+            <div class="detail-specs" data-product-specs></div>
+          </div>
+        </section>
+
+        <section
+          id="product-description"
+          class="product-overview-section"
+          data-product-description-section
+        >
+          <div class="product-description-copy" data-product-description-copy></div>
+
+          <div class="product-description-media" data-product-description-media>
+            <figure class="product-description-figure" data-product-diagram-wrap>
+              <img src="" alt="" data-product-diagram />
+            </figure>
+
+            <figure class="product-description-figure" data-product-detail-image-wrap>
+              <img src="" alt="" data-product-detail-image />
+            </figure>
+          </div>
+        </section>
+
+        <section id="product-details" class="product-details-section">
+          <div class="detail-columns">
+            <article class="detail-card">
+              <h3>Glavne karakteristike</h3>
+              <div class="detail-copy" data-product-main-features></div>
+            </article>
+
+            <article class="detail-card">
+              <h3>Pribor</h3>
+              <div class="detail-copy" data-product-accessories></div>
+            </article>
+
+            <article class="detail-card">
+              <h3>Pakovanje</h3>
+              <div class="detail-copy" data-product-packaging></div>
+            </article>
+          </div>
+
+          <article class="detail-card detail-card-wide">
+            <h3>Ostale tehničke karakteristike</h3>
+            <div class="technical-table-wrap">
+              <table class="technical-table" data-product-technical-table></table>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <main class="product-missing" data-product-missing hidden>
+      <div class="container product-missing-shell">
+        <p class="results-kicker">Proizvod</p>
+        <h1>Traženi proizvod nije pronađen.</h1>
+        <p class="product-lead">Vrati se na katalog i izaberi panel iz liste proizvoda.</p>
+        <a class="product-link" href="index.html#catalog">Nazad na katalog</a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,116 +1,270 @@
-/**
- * STEEL CONCEPT
- * Main Interaction Logic
- */
+document.documentElement.classList.add("js");
 
-document.addEventListener('DOMContentLoaded', () => {
+const products = window.STEEL_CONCEPT_PRODUCTS ?? [];
+const header = document.querySelector("[data-header]");
+const grid = document.querySelector("[data-product-grid]");
+const count = document.querySelector("[data-count]");
+const emptyState = document.querySelector("[data-empty]");
+const activeFilters = document.querySelector("[data-active-filters]");
+const searchInput = document.querySelector("[data-search]");
+const filterInputs = Array.from(document.querySelectorAll("[data-filter]"));
+const clearButtons = Array.from(document.querySelectorAll("[data-clear]"));
+const filterPanel = document.querySelector("[data-filter-panel]");
+const filterToggle = document.querySelector("[data-filter-toggle]");
+const filterBackdrop = document.querySelector("[data-filter-backdrop]");
+const filterCloseButtons = Array.from(document.querySelectorAll("[data-filter-close]"));
 
-  // Auto update copyright year
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+const state = {
+  search: "",
+  type: new Set(),
+  core: new Set(),
+  fixation: new Set(),
+  application: new Set()
+};
 
-  // Header scroll behavior (Hide on scroll down, show on scroll up)
-  const header = document.getElementById('header');
-  let lastScrollY = window.scrollY;
+const labelMap = {
+  type: {
+    zidni: "Zidni paneli",
+    krovni: "Krovni paneli"
+  }
+};
 
-  window.addEventListener('scroll', () => {
-      if (window.scrollY > 200) {
-          if (window.scrollY > lastScrollY) {
-              // Scrolling down
-              header.classList.add('hide-up');
-          } else {
-              // Scrolling up
-              header.classList.remove('hide-up');
-          }
-      } else {
-          header.classList.remove('hide-up');
-      }
-      lastScrollY = window.scrollY;
-  });
+const normalize = (value) =>
+  value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 
-  // Mobile menu toggle
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mainNav = document.getElementById('main-nav');
-  const navLinks = document.querySelectorAll('.nav-link');
+const escapeHtml = (value) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
 
-  if (menuToggle && mainNav) {
-      menuToggle.addEventListener('click', () => {
-          mainNav.classList.toggle('active');
-          menuToggle.classList.toggle('active');
-          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', !isExpanded);
-      });
-
-      // Close menu when clicking a link
-      navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-              mainNav.classList.remove('active');
-              menuToggle.classList.remove('active');
-              menuToggle.setAttribute('aria-expanded', 'false');
-          });
-      });
+const syncHeaderState = () => {
+  if (!header) {
+    return;
   }
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-              e.preventDefault();
-              const headerOffset = 80; // Size of fixed header
-              const elementPosition = targetElement.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  header.classList.toggle("scrolled", window.scrollY > 12);
+};
 
-              window.scrollTo({
-                  top: offsetPosition,
-                  behavior: 'smooth'
-              });
-          }
-      });
+const matchesSet = (productValue, activeValues) => {
+  if (activeValues.size === 0) {
+    return true;
+  }
+
+  if (Array.isArray(productValue)) {
+    return productValue.some((item) => activeValues.has(item));
+  }
+
+  return activeValues.has(productValue);
+};
+
+const getFilteredProducts = () => {
+  const search = normalize(state.search.trim());
+
+  return products.filter((product) => {
+    const haystack = normalize(
+      [
+        product.name,
+        product.fullName,
+        product.summary,
+        product.type,
+        product.core,
+        product.fixation,
+        ...product.application
+      ].join(" ")
+    );
+
+    if (search && !haystack.includes(search)) {
+      return false;
+    }
+
+    if (!matchesSet(product.type, state.type)) {
+      return false;
+    }
+
+    if (!matchesSet(product.core, state.core)) {
+      return false;
+    }
+
+    if (!matchesSet(product.fixation, state.fixation)) {
+      return false;
+    }
+
+    if (!matchesSet(product.application, state.application)) {
+      return false;
+    }
+
+    return true;
+  });
+};
+
+const renderActiveFilters = () => {
+  if (!activeFilters) {
+    return;
+  }
+
+  const pills = [];
+
+  if (state.search.trim()) {
+    pills.push(`<span class="active-pill">Pretraga: ${escapeHtml(state.search.trim())}</span>`);
+  }
+
+  ["type", "core", "fixation", "application"].forEach((group) => {
+    state[group].forEach((value) => {
+      const label = labelMap[group]?.[value] ?? value;
+      pills.push(`<span class="active-pill">${escapeHtml(label)}</span>`);
+    });
   });
 
-  // Simple animation observer
-  const animateElements = document.querySelectorAll('.fade-in-up');
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-              observer.unobserve(entry.target);
-          }
-      });
-  }, { threshold: 0.1 });
+  activeFilters.innerHTML = pills.join("");
+};
 
-  animateElements.forEach(el => observer.observe(el));
+const getSeriesLabel = (product) => (product.type === "zidni" ? "Zidni panel" : "Krovni panel");
 
-  // Form submission handler
-  const inquiryForm = document.getElementById('inquiryForm');
-  const formMessage = document.getElementById('formMessage');
+const renderProducts = () => {
+  if (!grid || !count || !emptyState) {
+    return;
+  }
 
-  if (inquiryForm) {
-      inquiryForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          
-          const btn = inquiryForm.querySelector('button[type="submit"]');
-          const originalText = btn.textContent;
-          
-          btn.textContent = 'Obradjujemo...';
-          btn.disabled = true;
+  const filtered = getFilteredProducts();
 
-          // Mock sending delay
-          setTimeout(() => {
-              formMessage.textContent = 'Vaš zahtev je uspešno prosleđen direkciji. Kontaktiraćemo Vas vrlo brzo.';
-              formMessage.style.color = '#27ae60'; // Success green
-              btn.textContent = originalText;
-              btn.disabled = false;
-              inquiryForm.reset();
-              
-              setTimeout(() => {
-                  formMessage.textContent = '';
-              }, 6000);
-          }, 1200);
-      });
+  count.textContent = `${filtered.length} proizvoda`;
+  renderActiveFilters();
+
+  if (filtered.length === 0) {
+    grid.innerHTML = "";
+    emptyState.hidden = false;
+    return;
+  }
+
+  emptyState.hidden = true;
+  grid.innerHTML = filtered
+    .map(
+      (product) => `
+        <article class="product-card">
+          <a class="product-card-link" href="${product.pageHref}" aria-label="${escapeHtml(product.fullName)}">
+            <div class="product-media">
+              <img src="${product.image}" alt="${escapeHtml(product.fullName)}" loading="lazy" />
+            </div>
+            <div class="product-body">
+              <h3>${escapeHtml(product.fullName)}</h3>
+              <p>${escapeHtml(product.summary)}</p>
+            </div>
+          </a>
+        </article>
+      `
+    )
+    .join("");
+};
+
+const resetFilters = () => {
+  state.search = "";
+
+  if (searchInput) {
+    searchInput.value = "";
+  }
+
+  ["type", "core", "fixation", "application"].forEach((group) => {
+    state[group].clear();
+  });
+
+  filterInputs.forEach((input) => {
+    input.checked = false;
+  });
+
+  renderProducts();
+};
+
+const openFilters = () => {
+  if (!filterPanel) {
+    return;
+  }
+
+  filterPanel.classList.add("is-open");
+  document.body.classList.add("filters-open");
+
+  if (filterBackdrop) {
+    filterBackdrop.hidden = false;
+  }
+
+  filterToggle?.setAttribute("aria-expanded", "true");
+
+  filterCloseButtons.forEach((button) => {
+    button.hidden = false;
+  });
+};
+
+const closeFilters = () => {
+  if (!filterPanel) {
+    return;
+  }
+
+  filterPanel.classList.remove("is-open");
+  document.body.classList.remove("filters-open");
+
+  if (filterBackdrop) {
+    filterBackdrop.hidden = true;
+  }
+
+  filterToggle?.setAttribute("aria-expanded", "false");
+
+  filterCloseButtons.forEach((button) => {
+    button.hidden = window.innerWidth > 980;
+  });
+};
+
+syncHeaderState();
+window.addEventListener("scroll", syncHeaderState, { passive: true });
+
+searchInput?.addEventListener("input", (event) => {
+  state.search = event.target.value;
+  renderProducts();
+});
+
+filterInputs.forEach((input) => {
+  input.addEventListener("change", (event) => {
+    const group = event.target.dataset.filter;
+    const value = event.target.value;
+
+    if (event.target.checked) {
+      state[group].add(value);
+    } else {
+      state[group].delete(value);
+    }
+
+    renderProducts();
+  });
+});
+
+clearButtons.forEach((button) => {
+  button.addEventListener("click", resetFilters);
+});
+
+filterToggle?.addEventListener("click", () => {
+  const isOpen = filterPanel?.classList.contains("is-open");
+
+  if (isOpen) {
+    closeFilters();
+  } else {
+    openFilters();
   }
 });
+
+filterCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeFilters);
+});
+
+filterBackdrop?.addEventListener("click", closeFilters);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeFilters();
+  }
+});
+
+renderProducts();
+closeFilters();
