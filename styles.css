@@ -856,6 +856,10 @@ h3 {
     display: none;
   }
 
+  .catalog {
+    padding-bottom: 0 !important;
+  }
+
   .header-shell {
     display: grid;
     grid-template-columns: 5rem minmax(0, 1fr) 5rem;
@@ -977,6 +981,10 @@ h3 {
 @media (max-width: 720px) {
   .container {
     width: min(var(--container), calc(100% - 1.25rem));
+  }
+
+  .catalog {
+    padding-bottom: 0;
   }
 
   .header-shell {
