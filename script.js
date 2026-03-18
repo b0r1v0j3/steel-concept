@@ -42,6 +42,9 @@ const escapeHtml = (value) =>
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 
+const getDisplayTitle = (product) =>
+  product.displayFullName ?? (product.type === "zidni" ? "Zidni sendvič paneli" : "Krovni sendvič paneli");
+
 const syncHeaderState = () => {
   if (!header) {
     return;
@@ -123,8 +126,6 @@ const renderActiveFilters = () => {
   activeFilters.innerHTML = pills.join("");
 };
 
-const getSeriesLabel = (product) => (product.type === "zidni" ? "Zidni panel" : "Krovni panel");
-
 const renderProducts = () => {
   if (!grid || !count || !emptyState) {
     return;
@@ -146,12 +147,12 @@ const renderProducts = () => {
     .map(
       (product) => `
         <article class="product-card">
-          <a class="product-card-link" href="${product.pageHref}" aria-label="${escapeHtml(product.fullName)}">
+          <a class="product-card-link" href="${product.pageHref}" aria-label="${escapeHtml(getDisplayTitle(product))}">
             <div class="product-media">
-              <img src="${product.image}" alt="${escapeHtml(product.fullName)}" loading="lazy" />
+              <img src="${product.image}" alt="${escapeHtml(getDisplayTitle(product))}" loading="lazy" />
             </div>
             <div class="product-body">
-              <h3>${escapeHtml(product.fullName)}</h3>
+              <h3>${escapeHtml(getDisplayTitle(product))}</h3>
               <p>${escapeHtml(product.summary)}</p>
             </div>
           </a>

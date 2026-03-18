@@ -10,6 +10,10 @@
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
 
+  const getSeriesLabel = (type) => (type === "zidni" ? "Zidni panel" : "Krovni panel");
+  const getDisplayTitle = (type) =>
+    type === "zidni" ? "Zidni sendvič paneli" : "Krovni sendvič paneli";
+
   const products = [
     {
       name: "ISOFRIG LS",
@@ -218,6 +222,8 @@
 
     return {
       ...product,
+      displayName: getSeriesLabel(product.type),
+      displayFullName: getDisplayTitle(product.type),
       slug,
       pageHref: `proizvod.html?slug=${encodeURIComponent(slug)}`
     };

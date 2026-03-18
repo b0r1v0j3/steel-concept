@@ -800,7 +800,11 @@ h3 {
   }
 
   .results-panel {
-    padding: 1.1rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
   .product-hero,

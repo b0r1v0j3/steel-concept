@@ -27,12 +27,45 @@ const cleanCopy = (value) =>
     .replace(/\s+/g, " ")
     .trim();
 
-const getSeriesLabel = (item) => (item.type === "zidni" ? "Zidni panel" : "Krovni panel");
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-const renderParagraphs = (items = []) =>
+const getSeriesLabel = (item) => (item.type === "zidni" ? "Zidni panel" : "Krovni panel");
+const getDisplayTitle = (item) =>
+  item.displayFullName ?? (item.type === "zidni" ? "Zidni sendvič paneli" : "Krovni sendvič paneli");
+
+const replaceInsensitive = (value, pattern, replacement) =>
+  value.replace(new RegExp(escapeRegExp(pattern), "gi"), replacement);
+
+const sanitizeProductCopy = (value, item) => {
+  let sanitized = cleanCopy(value);
+
+  if (!item?.name) {
+    return sanitized;
+  }
+
+  const replacements = [
+    [`Paneli ${item.name}`, "Paneli"],
+    [`${item.name} termoizolacioni zidni paneli`, "Zidni sendvič paneli"],
+    [`${item.name} termoizolacioni krovni paneli`, "Krovni sendvič paneli"],
+    [`${item.name} zidni sendvič paneli`, "Zidni sendvič paneli"],
+    [`${item.name} krovni sendvič paneli`, "Krovni sendvič paneli"],
+    [`${item.name} termoizolacioni paneli`, "Termoizolacioni paneli"],
+    [`${item.name} paneli`, "Paneli"],
+    [`${item.name} predstavlja`, `Ovaj ${getSeriesLabel(item).toLowerCase()} predstavlja`],
+    [item.name, getSeriesLabel(item)]
+  ];
+
+  replacements.forEach(([pattern, replacement]) => {
+    sanitized = replaceInsensitive(sanitized, pattern, replacement);
+  });
+
+  return sanitized;
+};
+
+const renderParagraphs = (items = [], item) =>
   items
     .filter(Boolean)
-    .map((item) => `<p>${escapeHtml(cleanCopy(item))}</p>`)
+    .map((entry) => `<p>${escapeHtml(sanitizeProductCopy(entry, item))}</p>`)
     .join("");
 
 const setFigureImage = (figure, image, src, alt) => {
@@ -110,14 +143,14 @@ if (!product) {
   const packaging = document.querySelector("[data-product-packaging]");
   const technicalTable = document.querySelector("[data-product-technical-table]");
 
-  document.title = `${product.name} | Steel Concept`;
+  document.title = `${getDisplayTitle(product)} | Steel Concept`;
 
   if (pageDescription) {
-    pageDescription.setAttribute("content", `${product.fullName}. ${product.summary}`);
+    pageDescription.setAttribute("content", `${getDisplayTitle(product)}. ${product.summary}`);
   }
 
   if (name) {
-    name.textContent = product.name;
+    name.textContent = getDisplayTitle(product);
   }
 
   if (summary) {
@@ -126,7 +159,7 @@ if (!product) {
 
   if (image) {
     image.src = product.image;
-    image.alt = product.fullName;
+    image.alt = getDisplayTitle(product);
   }
 
   if (series) {
@@ -138,20 +171,20 @@ if (!product) {
   }
 
   if (descriptionCopy) {
-    descriptionCopy.innerHTML = renderParagraphs(description.paragraphs);
+    descriptionCopy.innerHTML = renderParagraphs(description.paragraphs, product);
   }
 
   setFigureImage(
     diagramWrap,
     diagramImage,
     description.diagramImage,
-    `${product.fullName} tehnička skica`
+    `${getDisplayTitle(product)} tehnička skica`
   );
   setFigureImage(
     detailImageWrap,
     detailImage,
     description.detailImage,
-    `${product.fullName} detalj panela`
+    `${getDisplayTitle(product)} detalj panela`
   );
 
   if (descriptionMedia) {
@@ -169,15 +202,15 @@ if (!product) {
   }
 
   if (mainFeatures) {
-    mainFeatures.innerHTML = renderParagraphs(details.mainFeatures);
+    mainFeatures.innerHTML = renderParagraphs(details.mainFeatures, product);
   }
 
   if (accessories) {
-    accessories.innerHTML = renderParagraphs(details.accessories);
+    accessories.innerHTML = renderParagraphs(details.accessories, product);
   }
 
   if (packaging) {
-    packaging.innerHTML = renderParagraphs(details.packaging);
+    packaging.innerHTML = renderParagraphs(details.packaging, product);
   }
 
   if (technicalTable) {
