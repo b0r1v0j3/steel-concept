@@ -502,9 +502,10 @@ h3 {
   place-items: center;
   min-height: 420px;
   padding: 2rem;
-  background:
-    radial-gradient(circle at top, rgba(17, 17, 17, 0.03), transparent 46%),
-    var(--surface);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .product-visual img {

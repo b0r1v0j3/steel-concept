@@ -23,8 +23,7 @@
       fixation: "Frigo spoj",
       application: ["Rashladne komore"],
       summary: "PUR frigo panel za hladnjače i prostore sa kontrolisanom temperaturom.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isofrig-7016-horizontal-front-view-ro-v1QE9SF.jpg",
+      image: "assets/panels/isofrig-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isogrig-sistem-panela"
     },
     {
@@ -35,8 +34,7 @@
       fixation: "Frigo spoj",
       application: ["Rashladne komore"],
       summary: "PIR varijanta frigo sistema za rashladne komore i hladne magacine.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isofrig-9007-horizontal-front-view-ro-v14RSP1.jpg",
+      image: "assets/panels/isofrig-rf-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/zidni-paneli-isofrig-rf"
     },
     {
@@ -47,7 +45,7 @@
       fixation: "Skriveni spoj",
       application: ["Industrijski / trgovački"],
       summary: "Zidni panel sa skrivenim spojem za čist fasadni izgled i dobru zaptivenost.",
-      image: "https://terasteel.blob.core.windows.net/cmsresources/ISOPERa-LS-2-7016GFCL6.jpg",
+      image: "assets/panels/isopera-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isopera-ls-zidni-panel"
     },
     {
@@ -58,8 +56,7 @@
       fixation: "Skriveni spoj",
       application: ["Industrijski / trgovački"],
       summary: "Mineralna vuna i skriveni spoj za projekte sa višim protivpožarnim zahtevima.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/ISOPERa-MW-LS-2-701631CUA.jpg",
+      image: "assets/panels/isopera-mw-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isoperamw-zidni-sendvic-paneli"
     },
     {
@@ -70,7 +67,7 @@
       fixation: "Skriveni spoj",
       application: ["Industrijski / trgovački"],
       summary: "PIR zidni panel sa skrivenim spojem za savremene industrijske fasade.",
-      image: "https://terasteel.blob.core.windows.net/cmsresources/ISOPERa-LS-2-9007K2UZZ.jpg",
+      image: "assets/panels/isopera-rf-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/zidni-paneli-isopera-rf"
     },
     {
@@ -81,8 +78,7 @@
       fixation: "Vidljivi spoj",
       application: ["Industrijski / trgovački"],
       summary: "PUR zidni panel sa vidljivim spojem za racionalne industrijske objekte.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isopern-7016-horizontal-front-view-ro-v1PGD5E.jpg",
+      image: "assets/panels/isopern-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/zidni-paneli-isopern"
     },
     {
@@ -93,8 +89,7 @@
       fixation: "Vidljivi spoj",
       application: ["Industrijski / trgovački"],
       summary: "Zidni panel sa mineralnom vunom za dugotrajnost i protivpožarnu sigurnost.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/ISOPERn-MW-LS-2-7016BQQKM.jpg",
+      image: "assets/panels/isopern-mw-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isopern-zidni-sendvic-paneli"
     },
     {
@@ -105,8 +100,7 @@
       fixation: "Vidljivi spoj",
       application: ["Industrijski / trgovački"],
       summary: "PIR zidni panel sa vidljivim spojem za efikasnu i brzu izvedbu.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isopern-9007-horizontal-front-view-ro-v1MIA0W.jpg",
+      image: "assets/panels/isopern-rf-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/zidni-paneli-isopern-rf"
     },
     {
@@ -117,8 +111,7 @@
       fixation: "Skriveni spoj",
       application: ["Stroge higijenske primene"],
       summary: "PUR panel za higijenski osetljive prostore sa čistim završnim izgledom.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/ISOSANOa-LS-2-9007GDYUA.jpg",
+      image: "assets/panels/isosanoa-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isosanoa-zidni-paneli"
     },
     {
@@ -129,8 +122,7 @@
       fixation: "Skriveni spoj",
       application: ["Stroge higijenske primene"],
       summary: "PIR higijenski panel za prostore sa povećanim bezbednosnim zahtevima.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/ISOSANOa-LS-1-90078BBAB.jpg",
+      image: "assets/panels/isosanoa-rf-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isosanoa-rf-zidni-paneli"
     },
     {
@@ -141,8 +133,7 @@
       fixation: "Vidljivi spoj",
       application: ["Stroge higijenske primene"],
       summary: "PUR sistem sa zaštitnim oblogama za enterijere koji traže lakše održavanje.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isosanon-9010-horizontal-front-view-ro-v16KXDD.jpg",
+      image: "assets/panels/isosanon-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isosanon-zidni-paneli"
     },
     {
@@ -153,8 +144,7 @@
       fixation: "Vidljivi spoj",
       application: ["Stroge higijenske primene"],
       summary: "PIR higijenski panel za enterijere sa strožim tehničkim zahtevima.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isosanon-9010-horizontal-right-view-ro-v1ED22B.jpg",
+      image: "assets/panels/isosanon-rf-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isosanon-rf-zidni-paneli"
     },
     {
@@ -165,8 +155,7 @@
       fixation: "Vidljivi spoj",
       application: ["Industrijski / trgovački"],
       summary: "Krovni panel sa pet rebara i PUR jezgrom za industrijske i komercijalne krovove.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isoac5-7016-horizontal-front-view-ro-v102ZDS.jpg",
+      image: "assets/panels/isoac5-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isoac5rs-krovni-sendvic-paneli"
     },
     {
@@ -177,8 +166,7 @@
       fixation: "Vidljivi spoj",
       application: ["Industrijski / trgovački"],
       summary: "Krovni panel sa mineralnom vunom za projekte sa većim protivpožarnim zahtevima.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/ISOAC5-MW-LS-2-70161ZV6Y.jpg",
+      image: "assets/panels/isoac5-mw-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/krovni-paneli-isoac5-mw"
     },
     {
@@ -189,8 +177,7 @@
       fixation: "Vidljivi spoj",
       application: ["Industrijski / trgovački"],
       summary: "PIR krovni panel sa pet rebara za dugotrajna i termoefikasna rešenja.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isoac5-9007-horizontal-front-view-ro-v1OWQDD.jpg",
+      image: "assets/panels/isoac5-rf-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/krovni-paneli-isoac5-rf"
     },
     {
@@ -202,8 +189,7 @@
       fixation: "Vidljivi spoj",
       application: ["Objekti za uzgoj životinja"],
       summary: "PUR krovni panel za objekte za uzgoj životinja.",
-      image:
-        "https://terasteel.blob.core.windows.net/cmsresources/terasteel-render-isosano5-9010-7016-horizontal-up-front-view-ro-v1CRP0M.jpg",
+      image: "assets/panels/isosano5-ls.png",
       sourceUrl: "https://terasteel.rs/proizvoda/isosano-5-krovni-paneli"
     },
   ].map((product) => {
