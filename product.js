@@ -9,6 +9,16 @@ const slug = params.get("slug") ?? "";
 const page = document.querySelector("[data-product-page]");
 const missing = document.querySelector("[data-product-missing]");
 const pageDescription = document.querySelector("[data-page-description]");
+const pageCanonical = document.querySelector("[data-page-canonical]");
+const pageOgUrl = document.querySelector("[data-page-og-url]");
+const pageOgTitle = document.querySelector("[data-page-og-title]");
+const pageOgDescription = document.querySelector("[data-page-og-description]");
+const pageOgImage = document.querySelector("[data-page-og-image]");
+const pageOgImageAlt = document.querySelector("[data-page-og-image-alt]");
+const pageTwitterTitle = document.querySelector("[data-page-twitter-title]");
+const pageTwitterDescription = document.querySelector("[data-page-twitter-description]");
+const pageTwitterImage = document.querySelector("[data-page-twitter-image]");
+const pageTwitterImageAlt = document.querySelector("[data-page-twitter-image-alt]");
 const product = productMap[slug];
 const description = productDescriptions[slug] ?? {};
 const details = productDetails[slug] ?? {};
@@ -65,9 +75,22 @@ const sanitizeProductCopy = (value, item) => {
 
 const renderParagraphs = (items = [], item) =>
   items
+    .map((entry) => sanitizeProductCopy(entry, item))
     .filter(Boolean)
-    .map((entry) => `<p>${escapeHtml(sanitizeProductCopy(entry, item))}</p>`)
+    .map((entry) => `<p>${escapeHtml(entry)}</p>`)
     .join("");
+
+const toAbsoluteUrl = (value) => {
+  if (!value) {
+    return "";
+  }
+
+  try {
+    return new URL(value, window.location.href).href;
+  } catch {
+    return value;
+  }
+};
 
 const setFigureImage = (figure, image, src, alt) => {
   if (!figure || !image) {
@@ -108,12 +131,34 @@ const renderTechnicalRows = (rows = []) =>
     .map(
       ([label, value]) => `
         <tr>
-          <th scope="row">${escapeHtml(cleanCopy(label).replace(/:\s*\d+$/, "").replace(/:\s*$/, ""))}</th>
+          <th scope="row">${escapeHtml(cleanCopy(label))}</th>
           <td>${escapeHtml(cleanCopy(value))}</td>
         </tr>
       `
     )
     .join("");
+
+const setPageMeta = (item) => {
+  const title = `${getDisplayTitle(item)} | Steel Concept`;
+  const descriptionText = `${getDisplayTitle(item)}. ${item.summary}`;
+  const pageUrl = window.location.href;
+  const imageUrl = toAbsoluteUrl(item.image);
+  const imageAlt = getDisplayTitle(item);
+
+  document.title = title;
+
+  pageDescription?.setAttribute("content", descriptionText);
+  pageCanonical?.setAttribute("href", pageUrl);
+  pageOgUrl?.setAttribute("content", pageUrl);
+  pageOgTitle?.setAttribute("content", title);
+  pageOgDescription?.setAttribute("content", descriptionText);
+  pageOgImage?.setAttribute("content", imageUrl);
+  pageOgImageAlt?.setAttribute("content", imageAlt);
+  pageTwitterTitle?.setAttribute("content", title);
+  pageTwitterDescription?.setAttribute("content", descriptionText);
+  pageTwitterImage?.setAttribute("content", imageUrl);
+  pageTwitterImageAlt?.setAttribute("content", imageAlt);
+};
 
 if (!product) {
   if (page) {
@@ -142,11 +187,7 @@ if (!product) {
   const packaging = document.querySelector("[data-product-packaging]");
   const technicalTable = document.querySelector("[data-product-technical-table]");
 
-  document.title = `${getDisplayTitle(product)} | Steel Concept`;
-
-  if (pageDescription) {
-    pageDescription.setAttribute("content", `${getDisplayTitle(product)}. ${product.summary}`);
-  }
+  setPageMeta(product);
 
   if (name) {
     name.textContent = getDisplayTitle(product);

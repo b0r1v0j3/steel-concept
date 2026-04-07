@@ -19,7 +19,7 @@ window.STEEL_CONCEPT_PRODUCT_DETAILS = {
         "Poliester, PVC, PVDF"
       ],
       [
-        "Toplotna provodljivost (λ) u skladu sa EN EN 13165:2009",
+        "Toplotna provodljivost (λ) u skladu sa EN 13165:2009",
         "deklarisana: 0,029 [W/mK], početna: 0,022 [W/mK]"
       ],
       [
