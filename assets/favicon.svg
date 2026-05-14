@@ -1,14 +1,14 @@
 <svg width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="SC" xmlns="http://www.w3.org/2000/svg">
-  <rect width="256" height="256" rx="56" fill="#ffffff" />
-  <rect x="24" y="24" width="208" height="208" rx="42" fill="none" stroke="#111111" stroke-width="10" />
   <text
     x="128"
-    y="150"
-    fill="#111111"
-    font-family="Manrope, Arial Black, Arial, sans-serif"
-    font-size="104"
+    y="145"
+    fill="#2f4656"
+    font-family="Arial Black, Impact, Manrope, sans-serif"
+    font-size="150"
     font-weight="900"
     letter-spacing="0"
+    textLength="236"
+    lengthAdjust="spacingAndGlyphs"
     text-anchor="middle"
     dominant-baseline="middle"
   >SC</text>
